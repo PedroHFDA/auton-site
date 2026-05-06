@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "PowerShell(Start-Process python -ArgumentList \"-m\", \"http.server\", \"8080\" -WorkingDirectory \"C:\\\\Auton\\\\Site\" -WindowStyle Hidden -PassThru | Select-Object Id)",
+      "PowerShell(Test-NetConnection *)",
+      "PowerShell(Get-NetTCPConnection *)"
+    ]
+  }
+}

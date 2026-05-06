@@ -1,0 +1,17 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 36px 0;
+  margin-top: 60px;
+}
+.footer__inner {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.footer__copy {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); letter-spacing: 0.02em;
+}
+.footer__links {
+  display: flex; gap: 24px; font-size: 13px; color: var(--muted);
+}
+.footer__links a:hover { color: var(--lilac); }

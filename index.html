@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Auton · Automação de processos para empresas</title>
+<meta name="description" content="A Auton automatiza os processos da sua empresa para reduzir trabalho manual, acelerar atendimento e dar visibilidade total da operação. Diagnóstico gratuito." />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Auton · Automação de processos para empresas" />
+<meta property="og:description" content="Reduza o trabalho manual da sua equipe, acelere o atendimento e tenha visibilidade total da operação. Automação sob medida para o seu processo." />
+<meta property="og:locale" content="pt_BR" />
+<meta name="theme-color" content="#0E0A18" />
+
+<!-- Favicon (inline SVG, sem dependências) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='16' height='16' rx='2' fill='%239B7FE8'/%3E%3Crect x='42' y='6' width='16' height='16' rx='2' fill='%239B7FE8' fill-opacity='0.25'/%3E%3Crect x='6' y='42' width='16' height='16' rx='2' fill='%239B7FE8' fill-opacity='0.25'/%3E%3Crect x='42' y='42' width='16' height='16' rx='2' fill='%239B7FE8'/%3E%3C/svg%3E" />
+
+<!-- Schema.org Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Auton",
+  "description": "Automação de processos com IA para empresas brasileiras",
+  "email": "Autoncy@gmail.com",
+  "telephone": "+55-61-98236-5437",
+  "areaServed": "BR",
+  "address": { "@type": "PostalAddress", "addressCountry": "BR" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- Backgrounds -->
+<div class="bg-aurora" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- Reusable Logo SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="auton-logo" viewBox="0 0 64 64">
+      <line x1="22" y1="14" x2="42" y2="14" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
+      <line x1="14" y1="22" x2="14" y2="42" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
+      <line x1="50" y1="22" x2="50" y2="42" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
+      <line x1="22" y1="50" x2="42" y2="50" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
+      <rect x="6"  y="6"  width="16" height="16" rx="2" fill="#9B7FE8"/>
+      <rect x="42" y="6"  width="16" height="16" rx="2" fill="#9B7FE8" fill-opacity="0.25"/>
+      <rect x="6"  y="42" width="16" height="16" rx="2" fill="#9B7FE8" fill-opacity="0.25"/>
+      <rect x="42" y="42" width="16" height="16" rx="2" fill="#9B7FE8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="logo" aria-label="Auton, voltar ao início">
+      <svg aria-hidden="true"><use href="#auton-logo"/></svg>
+      <span class="wordmark">Auton</span>
+    </a>
+    <nav class="nav__center" aria-label="Principal">
+      <a href="#dores">Dores</a>
+      <a href="#por-que">Por que Auton</a>
+      <a href="#solucao">Soluções</a>
+      <a href="#processo">Processo</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__right">
+      <span class="nav__status"><span class="dot"></span> Atendendo agora</span>
+      <a class="btn btn--primary" href="#contato"><span class="nav__cta-text">Diagnóstico gratuito</span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <button class="nav__hamb" id="hambBtn" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav__progress" id="navProgress"></div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#dores">Dores</a>
+  <a href="#por-que">Por que Auton</a>
+  <a href="#solucao">Soluções</a>
+  <a href="#processo">Processo</a>
+  <a href="#setores">Setores</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn btn--primary btn--lg" href="#contato">Diagnóstico gratuito <span class="arrow" aria-hidden="true">&rarr;</span></a>
+</div>
+
+<main id="main">
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="hero__pre">
+        <span class="ico"></span> Automação sob medida
+        <span class="hero__pre-divider"></span> IA aplicada ao processo
+      </span>
+      <h1 class="hero__title">
+        Seu negócio<br/>
+        no piloto<br/>
+        <span class="accent">automático.</span>
+      </h1>
+      <p class="hero__sub">A Auton constrói automações sob medida que <strong>respondem clientes em segundos, conectam suas ferramentas e tiram tarefas repetitivas do seu time.</strong> Você foca em crescer. O resto roda sozinho.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary btn--lg" href="#contato">Pedir diagnóstico gratuito <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost btn--lg" href="#dores">Ver onde a gente entra</a>
+      </div>
+      <div class="hero__sig">
+        <span class="hero__sig-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Primeira automação no ar em semanas
+        </span>
+        <span class="hero__sig-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Você fala direto com quem constrói
+        </span>
+        <span class="hero__sig-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Suporte contínuo após a entrega
+        </span>
+      </div>
+    </div>
+
+    <!-- ===== Live Feed Card ===== -->
+    <div class="hero__visual" aria-hidden="true">
+      <div class="feed-card">
+        <div class="feed-card__head">
+          <span class="feed-card__title">
+            <span class="live-dot"></span> Auton · operação ao vivo
+          </span>
+          <span class="feed-card__counter">EVENTOS / 24H</span>
+        </div>
+
+        <div class="feed-list">
+          <ul id="feedTrack">
+            <!-- 8 unique items, doubled in JS for seamless loop -->
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:22</span>
+              <span class="feed-row__icon feed-row__icon--in">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
+              </span>
+              <span class="feed-row__text">Mensagem recebida no WhatsApp <span class="tag">+55 11</span></span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:23</span>
+              <span class="feed-row__icon feed-row__icon--ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="feed-row__text">Lead classificado: <strong>alta intenção</strong></span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:24</span>
+              <span class="feed-row__icon feed-row__icon--out">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </span>
+              <span class="feed-row__text">Resposta enviada ao cliente <span class="tag">1.2s</span></span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:25</span>
+              <span class="feed-row__icon feed-row__icon--ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="feed-row__text">Contato criado no <strong>CRM</strong></span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:31</span>
+              <span class="feed-row__icon feed-row__icon--in">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </span>
+              <span class="feed-row__text">Agendamento solicitado <span class="tag">qua 14h</span></span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:32</span>
+              <span class="feed-row__icon feed-row__icon--ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="feed-row__text">Horário reservado na <strong>agenda</strong></span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:33</span>
+              <span class="feed-row__icon feed-row__icon--out">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <span class="feed-row__text">Confirmação enviada por WhatsApp</span>
+            </li>
+            <li class="feed-row">
+              <span class="feed-row__time">09:14:34</span>
+              <span class="feed-row__icon feed-row__icon--ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="20" x2="21" y2="20"/><rect x="5" y="10" width="3" height="10"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg>
+              </span>
+              <span class="feed-row__text">Dashboard atualizado em tempo real</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="feed-card__foot">
+          <span><strong>+340 eventos</strong> processados hoje</span>
+          <div class="feed-card__channels">
+            <span>WhatsApp</span><span>CRM</span><span>Agenda</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INTEGRATIONS ============== -->
+<div class="integrations">
+  <p class="integrations__label">Conectamos com as ferramentas que você já usa</p>
+  <div class="integrations__track-wrap">
+    <div class="integrations__track" id="integTrack">
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#25D366"></span>WhatsApp Business</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#34A853"></span>Google Sheets</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#FF7A59"></span>HubSpot</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#0070F3"></span>RD Station</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#EA4B71"></span>N8N</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#9C4DCC"></span>Make</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#FF4A00"></span>Zapier</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#CECBF6"></span>Notion</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#4CAF73"></span>Pipedrive</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#4285F4"></span>Google Calendar</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#29ABE2"></span>Bling ERP</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#356AE6"></span>ActiveCampaign</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#E1306C"></span>Instagram</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#A855F7"></span>Slack</span>
+      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#FF6B35"></span>Tiny ERP</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== PAIN ============== -->
+<section class="section" id="dores">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Você reconhece isso?</span>
+      <h2 class="section__title reveal reveal--d1">As mesmas tarefas, todo dia, consumindo o tempo da sua equipe.</h2>
+      <p class="section__sub reveal reveal--d2">Se você se vê em algum desses cenários, automação não é luxo. É a forma mais rápida de devolver tempo ao seu time e atendimento aos seus clientes.</p>
+    </div>
+
+    <div class="pain__grid reveal reveal--d2">
+      <div class="pain__item">
+        <span class="pain__num">01</span>
+        <h3 class="pain__q">Cliente espera horas pra ser atendido</h3>
+        <p class="pain__desc">Mensagens chegam fora do horário, sua equipe não dá conta e a concorrência responde primeiro. Cada minuto de espera é um lead a menos virando venda.</p>
+      </div>
+      <div class="pain__item">
+        <span class="pain__num">02</span>
+        <h3 class="pain__q">Sua equipe perde horas copiando dados</h3>
+        <p class="pain__desc">Planilha pra CRM, CRM pra ERP, pedido pro WhatsApp, WhatsApp pro financeiro. O custo invisível é gigante e ninguém mede.</p>
+      </div>
+      <div class="pain__item">
+        <span class="pain__num">03</span>
+        <h3 class="pain__q">Você não sabe onde a operação está travando</h3>
+        <p class="pain__desc">Quantos leads chegaram esse mês? Quantos viraram cliente? Onde a esteira engasga? A resposta vive em planilhas espalhadas que ninguém olha em tempo real.</p>
+      </div>
+      <div class="pain__item">
+        <span class="pain__num">04</span>
+        <h3 class="pain__q">Tarefas repetitivas atrapalham o crescimento</h3>
+        <p class="pain__desc">Aprovações que demoram dias, cobranças manuais, relatórios feitos no domingo. O time apaga incêndio em vez de focar no que faz a empresa crescer.</p>
+      </div>
+    </div>
+
+    <div class="pain__bridge reveal reveal--d3">
+      <p>Cada um desses problemas tem uma solução automatizada. E a maioria começa a entregar resultado em poucas semanas.</p>
+      <a class="btn btn--primary" href="#solucao">Ver soluções <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<!-- ============== WHY AUTON (3 PILARES) ============== -->
+<section class="section" id="por-que">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Por que a Auton</span>
+      <h2 class="section__title reveal reveal--d1">Automação que se encaixa no seu negócio. Não o contrário.</h2>
+      <p class="section__sub reveal reveal--d2">A maioria das ferramentas no mercado obriga sua empresa a se moldar a um software pronto. A gente faz o caminho inverso.</p>
+    </div>
+
+    <div class="why__grid">
+      <article class="pillar reveal">
+        <span class="pillar__num">01</span>
+        <span class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </span>
+        <h3 class="pillar__title">Sob medida, não enlatado</h3>
+        <p class="pillar__desc">A automação é desenhada a partir do seu processo real. Sem encaixar sua empresa em template. Sem feature que você nunca vai usar pesando no orçamento.</p>
+      </article>
+
+      <article class="pillar reveal reveal--d1">
+        <span class="pillar__num">02</span>
+        <span class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <h3 class="pillar__title">Você fala com quem constrói</h3>
+        <p class="pillar__desc">Sem camada de vendedor, gerente de conta ou suporte robotizado. Os fundadores estão presentes desde a primeira conversa até a entrega. Decisão rápida, sem ruído.</p>
+      </article>
+
+      <article class="pillar reveal reveal--d2">
+        <span class="pillar__num">03</span>
+        <span class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+        </span>
+        <h3 class="pillar__title">Resultado em semanas, não meses</h3>
+        <p class="pillar__desc">Foco em ROI rápido. A primeira automação entra no ar em 2 a 3 semanas e começa a economizar tempo da sua equipe imediatamente. O resto vem em fases controladas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<!-- ============== SERVICES ============== -->
+<section class="section" id="solucao">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">O que a Auton entrega</span>
+      <h2 class="section__title reveal reveal--d1">Soluções que devolvem tempo ao seu negócio.</h2>
+      <p class="section__sub reveal reveal--d2">Cada projeto é desenhado a partir do seu processo real. Sem soluções genéricas, sem promessas vazias.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="svc reveal">
+        <div class="svc__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 class="svc__title">Atendimento automatizado</h3>
+        <p class="svc__desc">Atendentes virtuais inteligentes que respondem clientes 24 horas por dia, qualificam interesse e encaminham só o que precisa de gente para a sua equipe.</p>
+        <span class="svc__num">01 / Atendimento</span>
+      </article>
+
+      <article class="svc reveal reveal--d1">
+        <div class="svc__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M9 6h6M6 9v6M18 9v6M9 18h6"/></svg>
+        </div>
+        <h3 class="svc__title">Integração de sistemas</h3>
+        <p class="svc__desc">Suas ferramentas conversando entre si. CRM, ERP, planilhas e canais de venda passam a trabalhar como um sistema único, sem digitação dupla.</p>
+        <span class="svc__num">02 / Integração</span>
+      </article>
+
+      <article class="svc reveal reveal--d2">
+        <div class="svc__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 class="svc__title">Processos internos</h3>
+        <p class="svc__desc">Aprovações, notificações, cobranças e relatórios rodando sozinhos. Sua equipe deixa de ser operadora de tarefa para focar no que gera receita.</p>
+        <span class="svc__num">03 / Processos</span>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0-4 4v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3a4 4 0 0 0-4-4V6a4 4 0 0 0-4-4z"/><path d="M9 18v2M15 18v2"/></svg>
+        </div>
+        <h3 class="svc__title">Inteligência aplicada</h3>
+        <p class="svc__desc">Triagem automática de demandas, classificação de leads, respostas contextualizadas e análise de dados aplicadas direto nos seus fluxos do dia a dia.</p>
+        <span class="svc__num">04 / Inteligência</span>
+      </article>
+
+      <article class="svc reveal reveal--d1">
+        <div class="svc__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="20" x2="21" y2="20"/><rect x="5" y="10" width="3" height="10"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg>
+        </div>
+        <h3 class="svc__title">Dashboards em tempo real</h3>
+        <p class="svc__desc">Visibilidade completa da operação em uma tela. Você acompanha o que está rodando, onde está travando e decide com dado, não com palpite.</p>
+        <span class="svc__num">05 / Dashboards</span>
+      </article>
+
+      <article class="svc reveal reveal--d2">
+        <div class="svc__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12h6l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <h3 class="svc__title">Fluxos sob medida</h3>
+        <p class="svc__desc">Cada empresa tem um processo único. A gente entende o seu, desenha a automação certa e entrega algo que se encaixa na sua operação real.</p>
+        <span class="svc__num">06 / Customização</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<!-- ============== PROCESS ============== -->
+<section class="section" id="processo">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Como trabalhamos</span>
+      <h2 class="section__title reveal reveal--d1">Da primeira conversa ao fluxo rodando.</h2>
+      <p class="section__sub reveal reveal--d2">Um processo claro, sem surpresa de orçamento e sem promessa que não cabe na sua realidade.</p>
+    </div>
+
+    <div class="process__grid">
+      <article class="step reveal">
+        <div class="step__head">
+          <span class="step__num">1</span>
+          <span class="step__phase">Diagnóstico</span>
+        </div>
+        <h3 class="step__title">Entendemos sua operação</h3>
+        <p class="step__desc">Conversamos com você e seu time, mapeamos o processo atual e identificamos onde a automação gera mais impacto. Saímos da reunião com escopo, prazo e investimento claros.</p>
+      </article>
+
+      <article class="step reveal reveal--d1">
+        <div class="step__head">
+          <span class="step__num">2</span>
+          <span class="step__phase">Construção</span>
+        </div>
+        <h3 class="step__title">Desenhamos a solução</h3>
+        <p class="step__desc">Construímos o fluxo automatizado sob medida, integrando as ferramentas que você já usa. Você acompanha o progresso e valida cada etapa antes da entrega.</p>
+      </article>
+
+      <article class="step reveal reveal--d2">
+        <div class="step__head">
+          <span class="step__num">3</span>
+          <span class="step__phase">Entrega e suporte</span>
+        </div>
+        <h3 class="step__title">Implantamos e seguimos juntos</h3>
+        <p class="step__desc">Colocamos no ar, testamos ao vivo e treinamos sua equipe. Depois da entrega, seguimos com suporte e evolução contínua para a automação acompanhar o crescimento do negócio.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTORS (alt bg) ============== -->
+<section class="section section--alt" id="setores">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Cenários por setor</span>
+      <h2 class="section__title reveal reveal--d1">Empresas diferentes, mesma necessidade: tirar peso da operação.</h2>
+      <p class="section__sub reveal reveal--d2">Atuamos em qualquer setor. Estes são apenas alguns cenários onde a automação costuma entregar resultado mais rápido.</p>
+    </div>
+
+    <div class="sectors__grid">
+      <article class="sector reveal">
+        <div class="sector__head">
+          <h3 class="sector__name">Clínicas e consultórios</h3>
+          <span class="sector__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </span>
+        </div>
+        <div class="sector__pp">
+          <div class="sector__row">
+            <span class="sector__row-label">Antes</span>
+            <span class="sector__row-text">Recepção sobrecarregada com agendamentos, paciente esquecendo a consulta, agenda com janelas vazias.</span>
+          </div>
+          <div class="sector__row sector__row--solution">
+            <span class="sector__row-label">Com Auton</span>
+            <span class="sector__row-text">Agendamento e confirmação automáticos via WhatsApp, lembrete D-1, lista de espera ativada quando alguém desmarca.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="sector reveal reveal--d1">
+        <div class="sector__head">
+          <h3 class="sector__name">E-commerce e varejo</h3>
+          <span class="sector__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          </span>
+        </div>
+        <div class="sector__pp">
+          <div class="sector__row">
+            <span class="sector__row-label">Antes</span>
+            <span class="sector__row-text">Cliente perguntando rastreio o tempo todo, carrinho abandonado sem follow-up, marketplace e ERP fora de sincronia.</span>
+          </div>
+          <div class="sector__row sector__row--solution">
+            <span class="sector__row-label">Com Auton</span>
+            <span class="sector__row-text">Status de pedido automático, recuperação de carrinho personalizada, integração entre canais e ERP rodando sozinha.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="sector reveal reveal--d2">
+        <div class="sector__head">
+          <h3 class="sector__name">Serviços profissionais</h3>
+          <span class="sector__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7h-3V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M9 7V5h6v2"/></svg>
+          </span>
+        </div>
+        <div class="sector__pp">
+          <div class="sector__row">
+            <span class="sector__row-label">Antes</span>
+            <span class="sector__row-text">Demandas chegando por canais soltos, cobrança manual recorrente, cliente sem visibilidade do andamento.</span>
+          </div>
+          <div class="sector__row sector__row--solution">
+            <span class="sector__row-label">Com Auton</span>
+            <span class="sector__row-text">Triagem automática por tipo de demanda, cobrança recorrente automatizada, painel de status compartilhado com o cliente.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="sector reveal reveal--d3">
+        <div class="sector__head">
+          <h3 class="sector__name">Imobiliárias e corretores</h3>
+          <span class="sector__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+        </div>
+        <div class="sector__pp">
+          <div class="sector__row">
+            <span class="sector__row-label">Antes</span>
+            <span class="sector__row-text">Lead esfriando entre o primeiro contato e a visita, planilha de imóveis manual, follow-up dependendo da memória do corretor.</span>
+          </div>
+          <div class="sector__row sector__row--solution">
+            <span class="sector__row-label">Com Auton</span>
+            <span class="sector__row-text">Qualificação de lead em segundos, agendamento de visita automático, follow-up estruturado e integração com seu CRM.</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="sectors__note reveal reveal--d3">
+      Não se viu nessa lista? <strong>Não tem problema.</strong> Cada negócio tem um processo único e a Auton trabalha sob medida.
+    </p>
+  </div>
+</section>
+
+<!-- ============== STATS ============== -->
+<section class="section" style="padding-top: 80px; padding-bottom: 80px;">
+  <div class="container">
+    <div class="stats__wrap reveal">
+      <div class="stats__grid">
+        <div class="stat" data-stat="80">
+          <span class="stat__num"><span class="num">0</span><span class="unit">%</span></span>
+          <span class="stat__label">Tempo médio recuperado em tarefas repetitivas após automação</span>
+        </div>
+        <div class="stat" data-stat="literal">
+          <span class="stat__num"><span class="num">24/7</span></span>
+          <span class="stat__label">Atendimento contínuo, fora do horário comercial</span>
+        </div>
+        <div class="stat" data-stat="literal">
+          <span class="stat__num"><span class="num" style="font-size: 0.7em;">2-3</span></span>
+          <span class="stat__label">Semanas até a primeira automação no ar</span>
+        </div>
+        <div class="stat" data-stat="literal">
+          <span class="stat__num"><span class="num" style="font-size: 0.55em;">Sob medida</span></span>
+          <span class="stat__label">Cada projeto desenhado pra realidade da sua operação</span>
+        </div>
+      </div>
+      <div class="stats__foot">Métricas baseadas em projetos da Auton em produção.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Perguntas frequentes</span>
+      <h2 class="section__title reveal reveal--d1">As dúvidas que todo dono de empresa tem antes de começar.</h2>
+    </div>
+
+    <div class="faq__grid reveal reveal--d1">
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false">
+          <span>Quanto tempo leva para implementar uma automação?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__panel"><div class="faq__panel-inner">
+          Depende do escopo. Automações pontuais entram no ar em 2 a 3 semanas. Projetos mais amplos, que envolvem várias integrações, costumam ficar entre 4 e 8 semanas. No diagnóstico você sai com prazo realista, não com promessa.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false">
+          <span>Vocês conseguem integrar com o sistema que eu já uso?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__panel"><div class="faq__panel-inner">
+          Na maioria dos casos, sim. Trabalhamos com CRMs, ERPs, planilhas, sistemas de gestão e canais de atendimento. Se a ferramenta tiver alguma forma de receber e enviar dados, conseguimos integrar. No diagnóstico avaliamos o seu caso específico antes de prometer.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false">
+          <span>Quanto custa? Tem mensalidade?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__panel"><div class="faq__panel-inner">
+          Cada projeto é orçado de acordo com o escopo. O modelo padrão é uma implantação inicial mais um valor mensal de manutenção e evolução. Você sempre sabe o que está pagando e o que entra em cada parte. Sem letra miúda.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false">
+          <span>E quando o cliente precisar falar com uma pessoa?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__panel"><div class="faq__panel-inner">
+          A automação não substitui sua equipe, ela protege o tempo dela. Casos que precisam de gente são identificados e encaminhados na hora para o atendente certo, com todo o contexto da conversa já coletado. Seu time chega pronto para resolver.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false">
+          <span>Como ficam os dados da minha empresa e dos meus clientes?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__panel"><div class="faq__panel-inner">
+          Os dados ficam na sua infraestrutura ou em ambientes seguros e auditáveis. Tratamos tudo seguindo as boas práticas de LGPD, com acessos controlados e sem compartilhamento com terceiros. Você é o dono dos seus dados, sempre.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false">
+          <span>Funciona para empresa pequena ou só para grandes?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__panel"><div class="faq__panel-inner">
+          Atendemos desde pequenas operações que querem profissionalizar o atendimento até empresas com várias áreas integradas. O escopo se adapta ao tamanho do negócio. O importante é existir um processo repetitivo que esteja consumindo tempo do seu time.
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<!-- ============== CONTACT ============== -->
+<section class="section" id="contato">
+  <div class="container">
+    <div class="contact__wrap">
+      <div class="contact__copy">
+        <span class="eyebrow reveal">Diagnóstico gratuito</span>
+        <h2 class="section__title reveal reveal--d1">Vamos entender seu processo e mostrar onde a automação cabe.</h2>
+        <p class="reveal reveal--d2">Em 30 minutos a gente identifica seus gargalos, prioriza oportunidades e te entrega um caminho realista para automatizar. Sem compromisso.</p>
+
+        <ul class="diag-list reveal reveal--d2">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Conversa de 30 min</strong> com os fundadores, direto ao ponto</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Mapa dos seus processos</strong> com gargalos identificados</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Lista priorizada</strong> de oportunidades de automação</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Escopo, prazo e investimento</strong> realistas, sem letra miúda</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Sem compromisso</strong>, sem upsell, sem proposta enlatada</span>
+          </li>
+        </ul>
+
+        <div class="founders reveal reveal--d3">
+          <div class="founder">
+            <div class="founder__avatar" aria-hidden="true">CM</div>
+            <div class="founder__info">
+              <div class="founder__name">Carlos Mateo · Fundador</div>
+              <p class="founder__quote">"Você fala direto comigo, sem intermediário."</p>
+            </div>
+          </div>
+          <div class="founder">
+            <div class="founder__avatar founder__avatar--alt" aria-hidden="true">PH</div>
+            <div class="founder__info">
+              <div class="founder__name">Pedro Henrique · Fundador</div>
+              <p class="founder__quote">"Cada projeto tratado como se fosse o nosso próprio negócio."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__meta">
+          <div class="contact__meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="https://wa.me/5561982365437" target="_blank" rel="noopener">+55 61 98236-5437 (WhatsApp)</a>
+          </div>
+          <div class="contact__meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:Autoncy@gmail.com">Autoncy@gmail.com</a>
+          </div>
+          <div class="contact__meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Resposta em até 1 dia útil</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact__form reveal reveal--d1" id="contactForm" novalidate>
+        <div class="contact__form-head">
+          <h3>Comece pelo diagnóstico</h3>
+          <p>Conta pra gente em 30 segundos. A gente responde em até 1 dia útil.</p>
+        </div>
+
+        <div class="field">
+          <label for="cf-name">Seu nome</label>
+          <input type="text" id="cf-name" name="name" placeholder="Como podemos te chamar?" required />
+          <span class="field__error">Preenche seu nome.</span>
+        </div>
+        <div class="field">
+          <label for="cf-company">Empresa</label>
+          <input type="text" id="cf-company" name="company" placeholder="Nome da sua empresa" required />
+          <span class="field__error">Preenche o nome da empresa.</span>
+        </div>
+        <div class="field">
+          <label for="cf-process">Que processo você quer automatizar?</label>
+          <textarea id="cf-process" name="process" placeholder="Ex: agendamento de pacientes, atendimento no WhatsApp, integração entre planilha e CRM..." required></textarea>
+          <span class="field__error">Conta pra gente o processo.</span>
+        </div>
+        <div class="field">
+          <label for="cf-phone">WhatsApp para retorno</label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="(DDD) 9 0000-0000" required />
+          <span class="field__error">Preenche um WhatsApp válido.</span>
+        </div>
+        <div class="field">
+          <label for="cf-channel">Como prefere ser contatado primeiro?</label>
+          <select id="cf-channel" name="channel">
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="E-mail">E-mail</option>
+            <option value="Ligação">Ligação</option>
+          </select>
+        </div>
+
+        <button class="btn btn--primary btn--lg contact__submit" type="submit" id="submitBtn">
+          <span class="btn-label">Enviar e abrir WhatsApp</span>
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </button>
+
+        <div class="contact__success" id="formSuccess" role="status" aria-live="polite">
+          Mensagem montada. Abrindo WhatsApp...
+        </div>
+
+        <p class="contact__or">
+          Prefere ir direto? <a href="https://wa.me/5561982365437" target="_blank" rel="noopener">Falar agora no WhatsApp</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#top" class="logo">
+      <svg aria-hidden="true"><use href="#auton-logo"/></svg>
+      <span class="wordmark">Auton</span>
+    </a>
+    <div class="footer__links">
+      <a href="#dores">Dores</a>
+      <a href="#por-que">Por que Auton</a>
+      <a href="#solucao">Soluções</a>
+      <a href="#processo">Processo</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <span class="footer__copy">© 2026 Auton. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

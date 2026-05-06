@@ -1,0 +1,18 @@
+:root {
+  --noite: #0E0A18;
+  --bg: #14102A;
+  --panel: #1A1430;
+  --panel-2: #20183A;
+  --purple: #9B7FE8;
+  --purple-dim: #7F77DD;
+  --lilac: #CECBF6;
+  --mist: #EEEDFE;
+  --white: #FFFFFF;
+  --muted: #8C86B8;
+  --border: rgba(206, 203, 246, 0.08);
+  --border-strong: rgba(206, 203, 246, 0.18);
+  --green: #5BFFA0;
+  --display: 'Bricolage Grotesque', sans-serif;
+  --body: 'Bricolage Grotesque', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
