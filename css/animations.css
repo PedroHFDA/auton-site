@@ -1,7 +1,7 @@
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(91, 255, 160, 0.5); }
-  70%  { box-shadow: 0 0 0 7px rgba(91, 255, 160, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(91, 255, 160, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(72, 245, 160, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(72, 245, 160, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(72, 245, 160, 0); }
 }
 
 @keyframes spin {
@@ -9,7 +9,7 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -18,15 +18,22 @@
   100% { transform: translateX(-50%); }
 }
 
+@keyframes heroGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.04); }
+}
+
 .reveal {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.2,0.8,0.2,1), transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
+  opacity: 0; transform: translateY(24px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.in { opacity: 1; transform: translateY(0); }
-.reveal--d1.in { transition-delay: 0.06s; }
-.reveal--d2.in { transition-delay: 0.12s; }
-.reveal--d3.in { transition-delay: 0.18s; }
-.reveal--d4.in { transition-delay: 0.24s; }
+.reveal--d1.in { transition-delay: 0.07s; }
+.reveal--d2.in { transition-delay: 0.14s; }
+.reveal--d3.in { transition-delay: 0.21s; }
+.reveal--d4.in { transition-delay: 0.28s; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

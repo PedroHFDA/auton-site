@@ -1,17 +1,19 @@
 :root {
-  --noite: #0E0A18;
-  --bg: #14102A;
-  --panel: #1A1430;
-  --panel-2: #20183A;
+  --noite: #060411;
+  --bg: #0C0818;
+  --panel: #110928;
+  --panel-2: #160D30;
   --purple: #9B7FE8;
-  --purple-dim: #7F77DD;
-  --lilac: #CECBF6;
+  --purple-bright: #B39AF2;
+  --purple-dim: #6E50C8;
+  --lilac: #C4BFEF;
   --mist: #EEEDFE;
   --white: #FFFFFF;
-  --muted: #8C86B8;
-  --border: rgba(206, 203, 246, 0.08);
-  --border-strong: rgba(206, 203, 246, 0.18);
-  --green: #5BFFA0;
+  --muted: #7570A0;
+  --border: rgba(155,127,232,0.10);
+  --border-strong: rgba(155,127,232,0.24);
+  --green: #48F5A0;
+
   --display: 'Bricolage Grotesque', sans-serif;
   --body: 'Bricolage Grotesque', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
