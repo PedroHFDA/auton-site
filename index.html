@@ -1,839 +1,1276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Auton · Automação de processos para empresas</title>
-<meta name="description" content="A Auton automatiza os processos da sua empresa para reduzir trabalho manual, acelerar atendimento e dar visibilidade total da operação. Diagnóstico gratuito." />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Auton · Automação de processos para empresas" />
-<meta property="og:description" content="Reduza o trabalho manual da sua equipe, acelere o atendimento e tenha visibilidade total da operação. Automação sob medida para o seu processo." />
-<meta property="og:locale" content="pt_BR" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0E0A18" />
+<title>Auton · Automação inteligente para empresas</title>
+<meta name="description" content="Automatizamos processos de qualquer empresa com IA e integrações. Menos trabalho manual, mais resultado. Diagnóstico gratuito." />
 
-<!-- Favicon (inline SVG, sem dependências) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='16' height='16' rx='2' fill='%239B7FE8'/%3E%3Crect x='42' y='6' width='16' height='16' rx='2' fill='%239B7FE8' fill-opacity='0.25'/%3E%3Crect x='6' y='42' width='16' height='16' rx='2' fill='%239B7FE8' fill-opacity='0.25'/%3E%3Crect x='42' y='42' width='16' height='16' rx='2' fill='%239B7FE8'/%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Auton · Automação inteligente para empresas" />
+<meta property="og:description" content="Seu negócio no piloto automático. Automação de processos com IA para qualquer ramo." />
+<meta property="og:locale" content="pt_BR" />
 
-<!-- Schema.org Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Auton",
-  "description": "Automação de processos com IA para empresas brasileiras",
-  "email": "Autoncy@gmail.com",
-  "telephone": "+55-61-98236-5437",
-  "areaServed": "BR",
-  "address": { "@type": "PostalAddress", "addressCountry": "BR" }
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='5' y='5' width='22' height='22' rx='4' fill='%239B7FE8'/><rect x='37' y='5' width='22' height='22' rx='4' fill='%239B7FE8' fill-opacity='0.22'/><rect x='5' y='37' width='22' height='22' rx='4' fill='%239B7FE8' fill-opacity='0.22'/><rect x='37' y='37' width='22' height='22' rx='4' fill='%239B7FE8'/><path d='M27 16h10M27 48h10M16 27v10M48 27v10' stroke='%23CECBF6' stroke-width='2.4' stroke-linecap='round'/></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --void:#08050F; --noite:#0E0A18; --noite-2:#14102A; --noite-3:#1C1028;
+  --line:#2A1F45; --line-soft:#1A1330;
+  --purple:#9B7FE8; --purple-2:#7F77DD; --purple-deep:#5B4AC4;
+  --lilac:#CECBF6; --mist:#EEEDFE; --white:#fff;
+  --sys-green:#5BE3A2; --warn-amber:#F4C16B;
+
+  --font-display:"Bricolage Grotesque","Cabinet Grotesk",system-ui,sans-serif;
+  --font-body:"Inter Tight","Inter",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono","IBM Plex Mono",ui-monospace,monospace;
+
+  --step--1:clamp(.78rem,.74rem + .18vw,.88rem);
+  --step-0:clamp(.95rem,.90rem + .22vw,1.08rem);
+  --step-1:clamp(1.18rem,1.10rem + .40vw,1.42rem);
+  --step-2:clamp(1.55rem,1.40rem + .75vw,2.05rem);
+  --step-3:clamp(2.10rem,1.80rem + 1.50vw,3.10rem);
+  --step-4:clamp(2.80rem,2.20rem + 3.00vw,4.80rem);
+  --step-5:clamp(3.80rem,2.80rem + 5.00vw,7.40rem);
+  --step-6:clamp(5.00rem,3.20rem + 9.00vw,11.0rem);
+
+  --s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:24px;--s-6:32px;
+  --s-7:48px;--s-8:64px;--s-9:96px;--s-10:144px;--s-11:192px;
+
+  --r-1:6px;--r-2:10px;--r-3:16px;--r-4:24px;--r-pill:999px;
+
+  --ease-out-quart:cubic-bezier(.25,1,.5,1);
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
+  --dur-fast:180ms;--dur-base:320ms;--dur-slow:600ms;--dur-epic:1200ms;
+
+  --container:1320px;
+  --gutter:clamp(20px,4vw,56px);
 }
-</script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/main.css" />
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--noite);
+  color:var(--lilac);
+  font-family:var(--font-body);
+  font-size:var(--step-0);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  cursor:none;
+}
+@media (hover:none),(pointer:coarse){ body{cursor:auto} }
+
+::selection{background:var(--purple);color:var(--noite)}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--purple-2);border-radius:4px}
+* { scrollbar-color: var(--purple-2) transparent; scrollbar-width: thin; }
+
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:none}
+img,svg{display:block;max-width:100%}
+h1,h2,h3,h4,p{margin:0}
+:focus-visible{outline:2px solid var(--purple);outline-offset:3px;border-radius:4px}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.section{position:relative;padding:var(--s-11) 0}
+@media (max-width:900px){ .section{padding:var(--s-9) 0} }
+
+.section + .section::before{
+  content:"";display:block;position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--line) 50%,transparent 100%);
+}
+.section-label{
+  position:absolute;left:24px;top:24px;
+  font-family:var(--font-mono);font-size:var(--step--1);
+  color:var(--purple-2);opacity:.5;letter-spacing:.14em;text-transform:uppercase;
+  pointer-events:none;
+}
+@media (max-width:1100px){ .section-label{display:none} }
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:var(--step--1);
+  color:var(--lilac);opacity:.7;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:var(--s-5);
+}
+.eyebrow .chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px;border:1px solid var(--line);border-radius:var(--r-pill);
+  color:var(--sys-green);font-size:10px;
+}
+.eyebrow .chip .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--sys-green);
+  box-shadow:0 0 8px var(--sys-green);
+  animation:pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(.85)}
+}
+
+.h-display{
+  font-family:var(--font-display);font-weight:500;
+  letter-spacing:-.035em;line-height:.92;color:var(--mist);
+}
+.h-section{
+  font-family:var(--font-display);font-weight:500;
+  font-size:var(--step-5);letter-spacing:-.03em;line-height:.96;color:var(--mist);
+  max-width:18ch;
+}
+.h-sub{
+  font-family:var(--font-display);font-weight:500;
+  font-size:var(--step-2);letter-spacing:-.02em;line-height:1.05;color:var(--mist);
+}
+.body-lg{font-size:var(--step-1);color:var(--lilac);max-width:62ch;line-height:1.5}
+.body-md{font-size:var(--step-0);color:var(--lilac);opacity:.85;max-width:62ch}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 26px;border-radius:var(--r-pill);
+  font-family:var(--font-body);font-weight:600;font-size:var(--step-0);
+  letter-spacing:-.01em;
+  transition:transform var(--dur-base) var(--ease-out-expo),
+             box-shadow var(--dur-base) var(--ease-out-expo),
+             background var(--dur-base) var(--ease-out-expo);
+  will-change:transform;
+}
+.btn-primary{background:var(--purple);color:var(--noite)}
+.btn-primary:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 12px 36px -8px rgba(155,127,232,.6),0 0 0 1px rgba(155,127,232,.4);
+  background:#ad94ee;
+}
+.btn-ghost{border:1px solid var(--line);color:var(--lilac);background:rgba(20,16,42,.4)}
+.btn-ghost:hover{border-color:var(--purple);color:var(--mist);transform:translateY(-2px) scale(1.02)}
+.btn .arrow{transition:transform var(--dur-base) var(--ease-out-expo)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* CUSTOM CURSOR */
+.cursor-dot, .cursor-ring{
+  position:fixed;top:0;left:0;pointer-events:none;
+  z-index:9999;border-radius:50%;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
+}
+.cursor-dot{width:6px;height:6px;background:var(--purple);transition:opacity .2s}
+.cursor-ring{
+  width:26px;height:26px;
+  border:1px solid var(--lilac);opacity:.35;
+  transition:width .25s var(--ease-out-expo),height .25s var(--ease-out-expo),opacity .2s,background .25s;
+}
+.cursor-ring.active{width:48px;height:48px;background:rgba(206,203,246,.06);opacity:.5;border-color:var(--purple)}
+@media (hover:none),(pointer:coarse){ .cursor-dot,.cursor-ring{display:none} }
+
+/* GRAIN OVERLAY */
+.grain{
+  position:fixed;inset:-50%;width:200%;height:200%;
+  pointer-events:none;z-index:50;opacity:.035;
+  mix-blend-mode:soft-light;
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease-out-expo),transform .8s var(--ease-out-expo)}
+.reveal.in{opacity:1;transform:none}
+.reveal-stagger > *{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease-out-expo),transform .6s var(--ease-out-expo)}
+.reveal-stagger.in > *{opacity:1;transform:none}
+.reveal-stagger.in > *:nth-child(1){transition-delay:.05s}
+.reveal-stagger.in > *:nth-child(2){transition-delay:.12s}
+.reveal-stagger.in > *:nth-child(3){transition-delay:.19s}
+.reveal-stagger.in > *:nth-child(4){transition-delay:.26s}
+.reveal-stagger.in > *:nth-child(5){transition-delay:.33s}
+.reveal-stagger.in > *:nth-child(6){transition-delay:.40s}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:72px;
+  background:rgba(14,10,24,.55);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid var(--line-soft);
+  transition:background var(--dur-base) var(--ease-out-expo),border-color var(--dur-base);
+}
+.nav.scrolled{background:rgba(14,10,24,.85);border-bottom-color:var(--line)}
+.nav-inner{
+  height:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-6);
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .wordmark{
+  font-family:var(--font-display);font-weight:600;font-size:var(--step-0);
+  letter-spacing:-.02em;color:var(--mist);
+}
+.nav-center{display:flex;gap:var(--s-6);align-items:center}
+.nav-link{
+  font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lilac);opacity:.75;
+  position:relative;padding:6px 0;
+}
+.nav-link::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--purple);
+  transition:width .35s var(--ease-out-expo);
+}
+.nav-link:hover{opacity:1;color:var(--mist)}
+.nav-link:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:var(--s-4)}
+.sys-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 12px;border:1px solid var(--line);border-radius:var(--r-pill);
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;
+  color:var(--lilac);opacity:.9;
+}
+.sys-pill .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--sys-green);
+  box-shadow:0 0 8px var(--sys-green);animation:pulse 1.8s ease-in-out infinite;
+}
+.nav-cta{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:10px 16px;background:var(--purple);color:var(--noite);border-radius:var(--r-pill);
+  font-weight:500;display:inline-flex;align-items:center;gap:8px;
+  transition:transform .25s var(--ease-out-expo),box-shadow .25s var(--ease-out-expo);
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px -6px rgba(155,127,232,.6)}
+
+.nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--lilac);position:relative}
+.nav-toggle span::before,.nav-toggle span::after{
+  content:"";position:absolute;left:0;width:22px;height:1.5px;background:var(--lilac);
+  transition:transform .3s var(--ease-out-expo);
+}
+.nav-toggle span::before{top:-6px}
+.nav-toggle span::after{top:6px}
+
+@media (max-width:900px){
+  .nav-center,.sys-pill{display:none}
+  .nav-toggle{display:inline-flex}
+}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;
+  background:var(--noite);
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:var(--s-9) var(--gutter) var(--s-7);gap:var(--s-5);
+  transform:translateY(-100%);transition:transform .5s var(--ease-out-expo);
+}
+.mobile-menu.open{transform:none}
+.mobile-menu a{
+  font-family:var(--font-display);font-size:var(--step-3);font-weight:500;
+  color:var(--mist);letter-spacing:-.02em;
+}
+.mobile-menu a:hover{color:var(--purple)}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;min-height:100vh;padding-top:140px;padding-bottom:var(--s-9);
+  overflow:hidden;display:flex;align-items:center;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.aurora{
+  position:absolute;border-radius:50%;filter:blur(120px);opacity:.45;
+  animation:drift 24s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.aurora.a1{width:780px;height:780px;background:var(--purple);top:-260px;left:-180px}
+.aurora.a2{width:680px;height:680px;background:var(--purple-deep);bottom:-220px;right:-160px;animation-delay:-8s}
+.aurora.a3{width:480px;height:480px;background:#7F77DD;top:40%;left:35%;opacity:.25;animation-delay:-14s}
+@keyframes drift{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(60px,-40px) scale(1.08)}
+}
+.dot-grid{
+  position:absolute;inset:0;
+  background-image:radial-gradient(var(--line) 1px,transparent 1px);
+  background-size:32px 32px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 30%,transparent 80%);
+          mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 30%,transparent 80%);
+  opacity:.6;
+}
+.ghost-logo{
+  position:absolute;top:50%;left:50%;width:640px;height:640px;
+  transform:translate(-50%,-50%);opacity:.05;
+  animation:slow-rotate 60s linear infinite;
+  will-change:transform;
+}
+@keyframes slow-rotate{ to{ transform:translate(-50%,-50%) rotate(360deg) } }
+.scan-line{
+  position:absolute;left:0;right:0;height:1px;
+  background:var(--purple);box-shadow:0 0 12px var(--purple);
+  opacity:.5;
+  animation:scan 14s linear infinite;
+}
+@keyframes scan{
+  0%{top:0}
+  100%{top:100%}
+}
+
+.hero-inner{position:relative;z-index:1;width:100%}
+.hero-eyebrow{
+  display:flex;flex-wrap:wrap;gap:var(--s-3);align-items:center;
+  font-family:var(--font-mono);font-size:var(--step--1);
+  color:var(--lilac);opacity:.7;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:var(--s-6);
+}
+.hero-eyebrow .sep{opacity:.4}
+
+.hero-h1{
+  font-family:var(--font-display);font-weight:500;
+  font-size:var(--step-6);line-height:.92;letter-spacing:-.038em;
+  color:var(--mist);margin-bottom:var(--s-6);
+}
+.hero-h1 .line{
+  display:block;overflow:hidden;
+}
+.hero-h1 .line > span{
+  display:block;transform:translateY(110%);
+  animation:line-up 1s var(--ease-out-expo) forwards;
+}
+.hero-h1 .line:nth-child(1) > span{animation-delay:.2s}
+.hero-h1 .line:nth-child(2) > span{animation-delay:.32s}
+.hero-h1 .line:nth-child(3) > span{animation-delay:.44s}
+@keyframes line-up{ to{ transform:none } }
+.hero-h1 .accent{
+  background:linear-gradient(180deg,var(--lilac) 0%,var(--purple) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 32px rgba(155,127,232,.25));
+}
+
+.hero-sub{
+  font-size:var(--step-1);color:var(--lilac);opacity:.85;
+  max-width:56ch;line-height:1.45;margin-bottom:var(--s-7);
+}
+
+.hero-ctas{display:flex;flex-wrap:wrap;gap:var(--s-3);margin-bottom:var(--s-7)}
+
+.scroll-hint{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;
+  color:var(--lilac);opacity:.55;text-transform:uppercase;
+}
+.scroll-hint .ln{
+  display:inline-block;width:1px;height:20px;background:currentColor;
+  animation:scroll-bob 1.6s ease-in-out infinite;
+  transform-origin:top;
+}
+@keyframes scroll-bob{
+  0%,100%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1)}
+  51%{transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+.instrument{
+  position:absolute;right:var(--gutter);bottom:var(--s-8);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+  color:var(--lilac);opacity:.8;
+  background:rgba(8,5,15,.5);border:1px solid var(--line);
+  border-radius:var(--r-2);padding:14px 16px;min-width:240px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  z-index:2;
+}
+.instrument .row{display:flex;justify-content:space-between;gap:18px}
+.instrument .row + .row{margin-top:6px}
+.instrument .k{opacity:.5;text-transform:uppercase}
+.instrument .v{color:var(--mist);font-variant-numeric:tabular-nums}
+.instrument .v.green{color:var(--sys-green)}
+@media (max-width:900px){ .instrument{display:none} }
+
+/* ============ MARQUEE ============ */
+.marquee{
+  background:var(--noite-2);
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+  padding:var(--s-7) 0;overflow:hidden;position:relative;
+}
+.marquee-row{display:flex;width:max-content;animation:marq 60s linear infinite;will-change:transform}
+.marquee-row.r2{animation-direction:reverse;animation-duration:90s;opacity:.45;margin-top:18px}
+.marquee:hover .marquee-row{animation-play-state:paused}
+.marquee-row > span{
+  font-family:var(--font-display);font-weight:500;font-size:var(--step-3);
+  letter-spacing:-.02em;color:var(--lilac);
+  padding:0 24px;white-space:nowrap;
+}
+.marquee-row > span .bullet{color:var(--purple);margin-left:24px}
+@keyframes marq{ to{ transform:translateX(-50%) } }
+
+/* ============ SERVIÇOS — BENTO ============ */
+.bento{
+  display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:220px;gap:16px;
+  margin-top:var(--s-8);
+}
+.card{
+  position:relative;overflow:hidden;
+  background:var(--noite-3);border:1px solid var(--line);
+  border-radius:var(--r-3);padding:var(--s-6);
+  transition:border-color var(--dur-base) var(--ease-out-expo),
+             transform var(--dur-base) var(--ease-out-expo);
+  transform-style:preserve-3d;will-change:transform;
+}
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),
+    rgba(155,127,232,.12) 0%,transparent 50%);
+  opacity:0;transition:opacity .35s var(--ease-out-expo);
+}
+.card:hover{border-color:rgba(155,127,232,.6)}
+.card:hover::before{opacity:1}
+.card-num{
+  font-family:var(--font-mono);font-size:var(--step-2);
+  color:var(--purple);opacity:.55;letter-spacing:.02em;
+}
+.card-icon{position:absolute;top:var(--s-6);right:var(--s-6);color:var(--lilac);opacity:.75}
+.card-title{
+  font-family:var(--font-display);font-weight:500;font-size:var(--step-2);
+  letter-spacing:-.02em;color:var(--mist);margin:var(--s-5) 0 var(--s-3);line-height:1.05;
+}
+.card-desc{font-size:var(--step-0);color:var(--lilac);opacity:.75;line-height:1.5;max-width:48ch}
+.card-link{
+  position:absolute;left:var(--s-6);bottom:var(--s-5);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--purple);opacity:.85;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.card-link .ar{transition:transform .25s var(--ease-out-expo)}
+.card:hover .card-link .ar{transform:translateX(4px)}
+
+.c01{grid-column:span 4;grid-row:span 2}
+.c02{grid-column:span 2;grid-row:span 1}
+.c03{grid-column:span 2;grid-row:span 1}
+.c04{grid-column:span 3;grid-row:span 1}
+.c05{grid-column:span 3;grid-row:span 2}
+.c06{grid-column:span 3;grid-row:span 1}
+
+.c01-pattern{
+  position:absolute;inset:auto -30px -30px auto;width:380px;height:260px;
+  opacity:.18;pointer-events:none;
+}
+
+@media (max-width:1100px){
+  .bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:200px}
+  .c01{grid-column:span 4;grid-row:span 2}
+  .c02,.c03{grid-column:span 2}
+  .c04{grid-column:span 4}
+  .c05{grid-column:span 2;grid-row:span 2}
+  .c06{grid-column:span 2}
+}
+@media (max-width:700px){
+  .bento{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px}
+  .bento .card{grid-column:span 1 !important;grid-row:span 1 !important;min-height:200px}
+}
+
+/* ============ PROCESSO ============ */
+.proc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-6);
+  position:relative;margin-top:var(--s-9);
+}
+.proc-svg{position:absolute;left:0;right:0;top:64px;height:2px;width:100%;z-index:0;overflow:visible}
+.proc-svg line{stroke:var(--line);stroke-width:1}
+.proc-svg .draw{stroke:var(--purple);stroke-width:1.5;stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 1.6s var(--ease-out-expo)}
+.proc-svg.in .draw{stroke-dashoffset:0}
+.proc-node{
+  position:absolute;top:64px;width:14px;height:14px;border-radius:50%;
+  background:var(--purple);transform:translate(-50%,-50%);
+  box-shadow:0 0 0 6px rgba(206,203,246,.12),0 0 18px rgba(155,127,232,.6);
+}
+.proc-step{position:relative;z-index:1}
+.proc-num{
+  font-family:var(--font-display);font-weight:500;font-size:var(--step-5);
+  color:var(--purple);opacity:.35;letter-spacing:-.02em;line-height:1;margin-bottom:var(--s-7);
+}
+.proc-title{
+  font-family:var(--font-display);font-weight:500;font-size:var(--step-2);
+  letter-spacing:-.02em;color:var(--mist);margin-bottom:var(--s-3);
+}
+.proc-desc{font-size:var(--step-0);color:var(--lilac);opacity:.8;max-width:36ch;line-height:1.5}
+
+@media (max-width:900px){
+  .proc-grid{grid-template-columns:1fr;gap:var(--s-7)}
+  .proc-svg,.proc-node{display:none}
+}
+
+/* ============ STATS ============ */
+.stats-band{
+  background:var(--noite-2);
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+  padding:var(--s-10) 0;position:relative;
+}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-7);
+  align-items:start;
+}
+.stats-grid > div{padding:0 var(--s-4);border-left:1px solid var(--line-soft)}
+.stats-grid > div:first-child{border-left:0}
+.stat-num{
+  font-family:var(--font-display);font-weight:500;font-size:var(--step-6);
+  line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,var(--mist) 0%,var(--purple) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:var(--s-4);
+}
+.stat-label{
+  font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lilac);opacity:.7;
+}
+@media (max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:var(--s-7)}
+  .stats-grid > div{border-left:0}
+}
+@media (max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+}
+
+/* ============ GARANTIA ============ */
+.garantia{text-align:center}
+.garantia .body-lg{margin:var(--s-5) auto 0}
+.sig{
+  margin-top:var(--s-7);
+  font-family:var(--font-mono);font-size:var(--step--1);
+  letter-spacing:.06em;color:var(--lilac);opacity:.7;
+}
+
+/* ============ FAQ ============ */
+.faq-list{margin-top:var(--s-8);border-top:1px solid var(--line-soft)}
+.faq-item{border-bottom:1px solid var(--line-soft)}
+.faq-trigger{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);
+  text-align:left;padding:var(--s-6) 0;
+  font-family:var(--font-display);font-weight:500;font-size:var(--step-1);
+  letter-spacing:-.015em;color:var(--mist);
+  transition:color .2s;
+}
+.faq-trigger:hover{color:var(--purple)}
+.faq-trigger .pm{
+  flex:0 0 auto;width:28px;height:28px;border:1px solid var(--line);
+  border-radius:50%;position:relative;
+  transition:transform .35s var(--ease-out-expo),border-color .25s;
+}
+.faq-trigger .pm::before,.faq-trigger .pm::after{
+  content:"";position:absolute;background:var(--lilac);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.faq-trigger .pm::before{width:12px;height:1px}
+.faq-trigger .pm::after{width:1px;height:12px;transition:transform .3s var(--ease-out-expo)}
+.faq-item.open .pm{transform:rotate(45deg);border-color:var(--purple)}
+.faq-panel{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s var(--ease-out-expo);
+}
+.faq-content{
+  padding-bottom:var(--s-6);font-size:var(--step-0);color:var(--lilac);
+  opacity:.85;max-width:62ch;line-height:1.6;
+}
+
+/* ============ CONTATO ============ */
+.contato{position:relative;text-align:center;overflow:hidden}
+.contato::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:60%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--purple),transparent);
+  box-shadow:0 0 40px var(--purple);
+}
+.contato-aurora{
+  position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:800px;height:400px;background:var(--purple);
+  filter:blur(120px);opacity:.25;border-radius:50%;pointer-events:none;
+}
+.contato .container{position:relative;z-index:1}
+.contato .h-display{font-size:var(--step-5);margin-bottom:var(--s-5)}
+.contato .body-lg{margin:0 auto var(--s-7)}
+.contato-ctas{display:inline-flex;flex-wrap:wrap;gap:var(--s-3);justify-content:center}
+.contato-channels{
+  margin-top:var(--s-7);
+  font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lilac);opacity:.6;
+}
+.contato-channels a:hover{color:var(--purple);opacity:1}
+
+/* ============ FOOTER ============ */
+.footer{background:var(--void);padding:var(--s-10) 0 var(--s-7);position:relative}
+.footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--s-7);
+  padding-bottom:var(--s-8);
+}
+.footer h4{
+  font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lilac);opacity:.55;margin-bottom:var(--s-4);
+}
+.footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.footer ul a{font-size:var(--step-0);color:var(--lilac);opacity:.85;transition:color .2s,opacity .2s}
+.footer ul a:hover{color:var(--purple);opacity:1}
+.footer-brand .tag{
+  font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lilac);opacity:.6;margin-top:var(--s-3);
+}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line-soft);padding-top:var(--s-5);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
+  color:var(--lilac);opacity:.55;
+}
+.kbd{
+  display:inline-flex;gap:4px;align-items:center;
+  font-family:var(--font-mono);font-size:11px;
+  border:1px solid var(--line);padding:4px 8px;border-radius:6px;
+  color:var(--lilac);opacity:.7;
+}
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:var(--s-7)}
+  .footer-bottom{flex-direction:column;gap:var(--s-3);text-align:center}
+}
+
+/* ============ PRINT ============ */
+@media print{
+  body{background:#fff;color:#111}
+  .nav,.cursor-dot,.cursor-ring,.grain,.aurora,.dot-grid,.scan-line,.ghost-logo,.marquee{display:none}
+  .h-display,.h-section,.hero-h1{color:#111}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  body{cursor:auto}
+  .cursor-dot,.cursor-ring{display:none}
+  .reveal,.reveal-stagger > *{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Pular para o conteúdo</a>
-
-<!-- Backgrounds -->
-<div class="bg-aurora" aria-hidden="true"></div>
-<div class="bg-grid" aria-hidden="true"></div>
-
-<!-- Reusable Logo SVG -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="auton-logo" viewBox="0 0 64 64">
-      <line x1="22" y1="14" x2="42" y2="14" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
-      <line x1="14" y1="22" x2="14" y2="42" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
-      <line x1="50" y1="22" x2="50" y2="42" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
-      <line x1="22" y1="50" x2="42" y2="50" stroke="#CECBF6" stroke-width="2" stroke-linecap="round"/>
-      <rect x="6"  y="6"  width="16" height="16" rx="2" fill="#9B7FE8"/>
-      <rect x="42" y="6"  width="16" height="16" rx="2" fill="#9B7FE8" fill-opacity="0.25"/>
-      <rect x="6"  y="42" width="16" height="16" rx="2" fill="#9B7FE8" fill-opacity="0.25"/>
-      <rect x="42" y="42" width="16" height="16" rx="2" fill="#9B7FE8"/>
-    </symbol>
-  </defs>
+<!-- Grain overlay (animated SVG noise) -->
+<svg class="grain" aria-hidden="true">
+  <filter id="n">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch">
+      <animate attributeName="baseFrequency" dur="6s" values="0.85;0.95;0.85" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#n)"/>
 </svg>
 
-<!-- ============== NAV ============== -->
+<!-- Custom cursor -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- Reusable logo SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 64 64">
+    <rect x="5" y="5" width="22" height="22" rx="4" fill="#9B7FE8"/>
+    <rect x="37" y="5" width="22" height="22" rx="4" fill="#9B7FE8" fill-opacity="0.22" class="logo-dim"/>
+    <rect x="5" y="37" width="22" height="22" rx="4" fill="#9B7FE8" fill-opacity="0.22" class="logo-dim"/>
+    <rect x="37" y="37" width="22" height="22" rx="4" fill="#9B7FE8"/>
+    <path d="M27 16h10M27 48h10M16 27v10M48 27v10" stroke="#CECBF6" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
 <header class="nav" id="nav">
-  <div class="container nav__inner">
-    <a href="#top" class="logo" aria-label="Auton, voltar ao início">
-      <svg aria-hidden="true"><use href="#auton-logo"/></svg>
-      <span class="wordmark">Auton</span>
+  <div class="nav-inner">
+    <a class="brand" href="#top" data-magnetic aria-label="Auton, ir para o topo">
+      <svg width="28" height="28" role="img" aria-label="Auton"><use href="#logo"/></svg>
+      <span class="wordmark">AUTON</span>
     </a>
-    <nav class="nav__center" aria-label="Principal">
-      <a href="#dores">Dores</a>
-      <a href="#por-que">Por que Auton</a>
-      <a href="#solucao">Soluções</a>
-      <a href="#processo">Processo</a>
-      <a href="#faq">FAQ</a>
+    <nav class="nav-center" aria-label="Navegação principal">
+      <a class="nav-link" href="#servicos">Serviços</a>
+      <a class="nav-link" href="#processo">Processo</a>
+      <a class="nav-link" href="#numeros">Resultados</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link" href="#contato">Contato</a>
     </nav>
-    <div class="nav__right">
-      <span class="nav__status"><span class="dot"></span> Atendendo agora</span>
-      <a class="btn btn--primary" href="#contato"><span class="nav__cta-text">Diagnóstico gratuito</span><span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <button class="nav__hamb" id="hambBtn" aria-label="Abrir menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+    <div class="nav-right">
+      <span class="sys-pill"><span class="dot"></span>SYS_ONLINE</span>
+      <a class="nav-cta" href="https://wa.me/5561982365437" target="_blank" rel="noopener" data-magnetic>
+        Fale conosco <span aria-hidden="true">→</span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" id="navToggle"><span></span></button>
     </div>
   </div>
-  <div class="nav__progress" id="navProgress"></div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="#dores">Dores</a>
-  <a href="#por-que">Por que Auton</a>
-  <a href="#solucao">Soluções</a>
+  <a href="#servicos">Serviços</a>
   <a href="#processo">Processo</a>
-  <a href="#setores">Setores</a>
+  <a href="#numeros">Resultados</a>
   <a href="#faq">FAQ</a>
-  <a class="btn btn--primary btn--lg" href="#contato">Diagnóstico gratuito <span class="arrow" aria-hidden="true">&rarr;</span></a>
+  <a href="#contato">Contato</a>
+  <a href="https://wa.me/5561982365437" style="color:var(--purple)">WhatsApp →</a>
 </div>
 
-<main id="main">
+<main id="top">
 
-<!-- ============== HERO ============== -->
-<section class="hero" id="top">
-  <div class="container hero__inner">
-    <div class="hero__copy">
-      <span class="hero__pre">
-        <span class="ico"></span> Automação sob medida
-        <span class="hero__pre-divider"></span> IA aplicada ao processo
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <span class="section-label">S.01 / HERO</span>
+  <div class="hero-bg" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+    <div class="dot-grid"></div>
+    <svg class="ghost-logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
+    <div class="scan-line"></div>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">
+      <span>AUTOMAÇÃO B2B</span><span class="sep">/</span>
+      <span>BRASIL</span><span class="sep">/</span>
+      <span>V1.0</span>
+      <span class="chip-wrap">
+        <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--sys-green);font-size:10px">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--sys-green);box-shadow:0 0 8px var(--sys-green);animation:pulse 1.8s ease-in-out infinite"></span>
+          ATIVO
+        </span>
       </span>
-      <h1 class="hero__title">
-        Seu negócio<br/>
-        no piloto<br/>
-        <span class="accent">automático.</span>
-      </h1>
-      <p class="hero__sub">A Auton constrói automações sob medida que <strong>respondem clientes em segundos, conectam suas ferramentas e tiram tarefas repetitivas do seu time.</strong> Você foca em crescer. O resto roda sozinho.</p>
-      <div class="hero__ctas">
-        <a class="btn btn--primary btn--lg" href="#contato">Pedir diagnóstico gratuito <span class="arrow" aria-hidden="true">&rarr;</span></a>
-        <a class="btn btn--ghost btn--lg" href="#dores">Ver onde a gente entra</a>
-      </div>
-      <div class="hero__sig">
-        <span class="hero__sig-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Primeira automação no ar em semanas
-        </span>
-        <span class="hero__sig-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Você fala direto com quem constrói
-        </span>
-        <span class="hero__sig-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Suporte contínuo após a entrega
-        </span>
-      </div>
     </div>
 
-    <!-- ===== Live Feed Card ===== -->
-    <div class="hero__visual" aria-hidden="true">
-      <div class="feed-card">
-        <div class="feed-card__head">
-          <span class="feed-card__title">
-            <span class="live-dot"></span> Auton · operação ao vivo
-          </span>
-          <span class="feed-card__counter">EVENTOS / 24H</span>
-        </div>
+    <h1 class="hero-h1">
+      <span class="line"><span>SEU NEGÓCIO</span></span>
+      <span class="line"><span>NO PILOTO</span></span>
+      <span class="line"><span class="accent">AUTOMÁTICO.</span></span>
+    </h1>
 
-        <div class="feed-list">
-          <ul id="feedTrack">
-            <!-- 8 unique items, doubled in JS for seamless loop -->
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:22</span>
-              <span class="feed-row__icon feed-row__icon--in">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
-              </span>
-              <span class="feed-row__text">Mensagem recebida no WhatsApp <span class="tag">+55 11</span></span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:23</span>
-              <span class="feed-row__icon feed-row__icon--ok">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span class="feed-row__text">Lead classificado: <strong>alta intenção</strong></span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:24</span>
-              <span class="feed-row__icon feed-row__icon--out">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              </span>
-              <span class="feed-row__text">Resposta enviada ao cliente <span class="tag">1.2s</span></span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:25</span>
-              <span class="feed-row__icon feed-row__icon--ok">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span class="feed-row__text">Contato criado no <strong>CRM</strong></span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:31</span>
-              <span class="feed-row__icon feed-row__icon--in">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </span>
-              <span class="feed-row__text">Agendamento solicitado <span class="tag">qua 14h</span></span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:32</span>
-              <span class="feed-row__icon feed-row__icon--ok">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span class="feed-row__text">Horário reservado na <strong>agenda</strong></span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:33</span>
-              <span class="feed-row__icon feed-row__icon--out">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </span>
-              <span class="feed-row__text">Confirmação enviada por WhatsApp</span>
-            </li>
-            <li class="feed-row">
-              <span class="feed-row__time">09:14:34</span>
-              <span class="feed-row__icon feed-row__icon--ok">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="20" x2="21" y2="20"/><rect x="5" y="10" width="3" height="10"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg>
-              </span>
-              <span class="feed-row__text">Dashboard atualizado em tempo real</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="feed-card__foot">
-          <span><strong>+340 eventos</strong> processados hoje</span>
-          <div class="feed-card__channels">
-            <span>WhatsApp</span><span>CRM</span><span>Agenda</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== INTEGRATIONS ============== -->
-<div class="integrations">
-  <p class="integrations__label">Conectamos com as ferramentas que você já usa</p>
-  <div class="integrations__track-wrap">
-    <div class="integrations__track" id="integTrack">
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#25D366"></span>WhatsApp Business</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#34A853"></span>Google Sheets</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#FF7A59"></span>HubSpot</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#0070F3"></span>RD Station</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#EA4B71"></span>N8N</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#9C4DCC"></span>Make</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#FF4A00"></span>Zapier</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#CECBF6"></span>Notion</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#4CAF73"></span>Pipedrive</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#4285F4"></span>Google Calendar</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#29ABE2"></span>Bling ERP</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#356AE6"></span>ActiveCampaign</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#E1306C"></span>Instagram</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#A855F7"></span>Slack</span>
-      <span class="integ-chip"><span class="integ-chip__dot" style="--dot-color:#FF6B35"></span>Tiny ERP</span>
-    </div>
-  </div>
-</div>
-
-<!-- ============== PAIN ============== -->
-<section class="section" id="dores">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow reveal">Você reconhece isso?</span>
-      <h2 class="section__title reveal reveal--d1">As mesmas tarefas, todo dia, consumindo o tempo da sua equipe.</h2>
-      <p class="section__sub reveal reveal--d2">Se você se vê em algum desses cenários, automação não é luxo. É a forma mais rápida de devolver tempo ao seu time e atendimento aos seus clientes.</p>
-    </div>
-
-    <div class="pain__grid reveal reveal--d2">
-      <div class="pain__item">
-        <span class="pain__num">01</span>
-        <h3 class="pain__q">Cliente espera horas pra ser atendido</h3>
-        <p class="pain__desc">Mensagens chegam fora do horário, sua equipe não dá conta e a concorrência responde primeiro. Cada minuto de espera é um lead a menos virando venda.</p>
-      </div>
-      <div class="pain__item">
-        <span class="pain__num">02</span>
-        <h3 class="pain__q">Sua equipe perde horas copiando dados</h3>
-        <p class="pain__desc">Planilha pra CRM, CRM pra ERP, pedido pro WhatsApp, WhatsApp pro financeiro. O custo invisível é gigante e ninguém mede.</p>
-      </div>
-      <div class="pain__item">
-        <span class="pain__num">03</span>
-        <h3 class="pain__q">Você não sabe onde a operação está travando</h3>
-        <p class="pain__desc">Quantos leads chegaram esse mês? Quantos viraram cliente? Onde a esteira engasga? A resposta vive em planilhas espalhadas que ninguém olha em tempo real.</p>
-      </div>
-      <div class="pain__item">
-        <span class="pain__num">04</span>
-        <h3 class="pain__q">Tarefas repetitivas atrapalham o crescimento</h3>
-        <p class="pain__desc">Aprovações que demoram dias, cobranças manuais, relatórios feitos no domingo. O time apaga incêndio em vez de focar no que faz a empresa crescer.</p>
-      </div>
-    </div>
-
-    <div class="pain__bridge reveal reveal--d3">
-      <p>Cada um desses problemas tem uma solução automatizada. E a maioria começa a entregar resultado em poucas semanas.</p>
-      <a class="btn btn--primary" href="#solucao">Ver soluções <span class="arrow" aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<div class="container"><div class="section-divider"></div></div>
-
-<!-- ============== WHY AUTON (3 PILARES) ============== -->
-<section class="section" id="por-que">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow reveal">Por que a Auton</span>
-      <h2 class="section__title reveal reveal--d1">Automação que se encaixa no seu negócio. Não o contrário.</h2>
-      <p class="section__sub reveal reveal--d2">A maioria das ferramentas no mercado obriga sua empresa a se moldar a um software pronto. A gente faz o caminho inverso.</p>
-    </div>
-
-    <div class="why__grid">
-      <article class="pillar reveal">
-        <span class="pillar__num">01</span>
-        <span class="pillar__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </span>
-        <h3 class="pillar__title">Sob medida, não enlatado</h3>
-        <p class="pillar__desc">A automação é desenhada a partir do seu processo real. Sem encaixar sua empresa em template. Sem feature que você nunca vai usar pesando no orçamento.</p>
-      </article>
-
-      <article class="pillar reveal reveal--d1">
-        <span class="pillar__num">02</span>
-        <span class="pillar__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </span>
-        <h3 class="pillar__title">Você fala com quem constrói</h3>
-        <p class="pillar__desc">Sem camada de vendedor, gerente de conta ou suporte robotizado. Os fundadores estão presentes desde a primeira conversa até a entrega. Decisão rápida, sem ruído.</p>
-      </article>
-
-      <article class="pillar reveal reveal--d2">
-        <span class="pillar__num">03</span>
-        <span class="pillar__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
-        </span>
-        <h3 class="pillar__title">Resultado em semanas, não meses</h3>
-        <p class="pillar__desc">Foco em ROI rápido. A primeira automação entra no ar em 2 a 3 semanas e começa a economizar tempo da sua equipe imediatamente. O resto vem em fases controladas.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<div class="container"><div class="section-divider"></div></div>
-
-<!-- ============== SERVICES ============== -->
-<section class="section" id="solucao">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow reveal">O que a Auton entrega</span>
-      <h2 class="section__title reveal reveal--d1">Soluções que devolvem tempo ao seu negócio.</h2>
-      <p class="section__sub reveal reveal--d2">Cada projeto é desenhado a partir do seu processo real. Sem soluções genéricas, sem promessas vazias.</p>
-    </div>
-
-    <div class="services-grid">
-      <article class="svc reveal">
-        <div class="svc__icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
-        </div>
-        <h3 class="svc__title">Atendimento automatizado</h3>
-        <p class="svc__desc">Atendentes virtuais inteligentes que respondem clientes 24 horas por dia, qualificam interesse e encaminham só o que precisa de gente para a sua equipe.</p>
-        <span class="svc__num">01 / Atendimento</span>
-      </article>
-
-      <article class="svc reveal reveal--d1">
-        <div class="svc__icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M9 6h6M6 9v6M18 9v6M9 18h6"/></svg>
-        </div>
-        <h3 class="svc__title">Integração de sistemas</h3>
-        <p class="svc__desc">Suas ferramentas conversando entre si. CRM, ERP, planilhas e canais de venda passam a trabalhar como um sistema único, sem digitação dupla.</p>
-        <span class="svc__num">02 / Integração</span>
-      </article>
-
-      <article class="svc reveal reveal--d2">
-        <div class="svc__icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <h3 class="svc__title">Processos internos</h3>
-        <p class="svc__desc">Aprovações, notificações, cobranças e relatórios rodando sozinhos. Sua equipe deixa de ser operadora de tarefa para focar no que gera receita.</p>
-        <span class="svc__num">03 / Processos</span>
-      </article>
-
-      <article class="svc reveal">
-        <div class="svc__icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0-4 4v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3a4 4 0 0 0-4-4V6a4 4 0 0 0-4-4z"/><path d="M9 18v2M15 18v2"/></svg>
-        </div>
-        <h3 class="svc__title">Inteligência aplicada</h3>
-        <p class="svc__desc">Triagem automática de demandas, classificação de leads, respostas contextualizadas e análise de dados aplicadas direto nos seus fluxos do dia a dia.</p>
-        <span class="svc__num">04 / Inteligência</span>
-      </article>
-
-      <article class="svc reveal reveal--d1">
-        <div class="svc__icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="20" x2="21" y2="20"/><rect x="5" y="10" width="3" height="10"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg>
-        </div>
-        <h3 class="svc__title">Dashboards em tempo real</h3>
-        <p class="svc__desc">Visibilidade completa da operação em uma tela. Você acompanha o que está rodando, onde está travando e decide com dado, não com palpite.</p>
-        <span class="svc__num">05 / Dashboards</span>
-      </article>
-
-      <article class="svc reveal reveal--d2">
-        <div class="svc__icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12h6l3-9 4 18 3-9h4"/></svg>
-        </div>
-        <h3 class="svc__title">Fluxos sob medida</h3>
-        <p class="svc__desc">Cada empresa tem um processo único. A gente entende o seu, desenha a automação certa e entrega algo que se encaixa na sua operação real.</p>
-        <span class="svc__num">06 / Customização</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<div class="container"><div class="section-divider"></div></div>
-
-<!-- ============== PROCESS ============== -->
-<section class="section" id="processo">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow reveal">Como trabalhamos</span>
-      <h2 class="section__title reveal reveal--d1">Da primeira conversa ao fluxo rodando.</h2>
-      <p class="section__sub reveal reveal--d2">Um processo claro, sem surpresa de orçamento e sem promessa que não cabe na sua realidade.</p>
-    </div>
-
-    <div class="process__grid">
-      <article class="step reveal">
-        <div class="step__head">
-          <span class="step__num">1</span>
-          <span class="step__phase">Diagnóstico</span>
-        </div>
-        <h3 class="step__title">Entendemos sua operação</h3>
-        <p class="step__desc">Conversamos com você e seu time, mapeamos o processo atual e identificamos onde a automação gera mais impacto. Saímos da reunião com escopo, prazo e investimento claros.</p>
-      </article>
-
-      <article class="step reveal reveal--d1">
-        <div class="step__head">
-          <span class="step__num">2</span>
-          <span class="step__phase">Construção</span>
-        </div>
-        <h3 class="step__title">Desenhamos a solução</h3>
-        <p class="step__desc">Construímos o fluxo automatizado sob medida, integrando as ferramentas que você já usa. Você acompanha o progresso e valida cada etapa antes da entrega.</p>
-      </article>
-
-      <article class="step reveal reveal--d2">
-        <div class="step__head">
-          <span class="step__num">3</span>
-          <span class="step__phase">Entrega e suporte</span>
-        </div>
-        <h3 class="step__title">Implantamos e seguimos juntos</h3>
-        <p class="step__desc">Colocamos no ar, testamos ao vivo e treinamos sua equipe. Depois da entrega, seguimos com suporte e evolução contínua para a automação acompanhar o crescimento do negócio.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============== SECTORS (alt bg) ============== -->
-<section class="section section--alt" id="setores">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow reveal">Cenários por setor</span>
-      <h2 class="section__title reveal reveal--d1">Empresas diferentes, mesma necessidade: tirar peso da operação.</h2>
-      <p class="section__sub reveal reveal--d2">Atuamos em qualquer setor. Estes são apenas alguns cenários onde a automação costuma entregar resultado mais rápido.</p>
-    </div>
-
-    <div class="sectors__grid">
-      <article class="sector reveal">
-        <div class="sector__head">
-          <h3 class="sector__name">Clínicas e consultórios</h3>
-          <span class="sector__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
-          </span>
-        </div>
-        <div class="sector__pp">
-          <div class="sector__row">
-            <span class="sector__row-label">Antes</span>
-            <span class="sector__row-text">Recepção sobrecarregada com agendamentos, paciente esquecendo a consulta, agenda com janelas vazias.</span>
-          </div>
-          <div class="sector__row sector__row--solution">
-            <span class="sector__row-label">Com Auton</span>
-            <span class="sector__row-text">Agendamento e confirmação automáticos via WhatsApp, lembrete D-1, lista de espera ativada quando alguém desmarca.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="sector reveal reveal--d1">
-        <div class="sector__head">
-          <h3 class="sector__name">E-commerce e varejo</h3>
-          <span class="sector__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-          </span>
-        </div>
-        <div class="sector__pp">
-          <div class="sector__row">
-            <span class="sector__row-label">Antes</span>
-            <span class="sector__row-text">Cliente perguntando rastreio o tempo todo, carrinho abandonado sem follow-up, marketplace e ERP fora de sincronia.</span>
-          </div>
-          <div class="sector__row sector__row--solution">
-            <span class="sector__row-label">Com Auton</span>
-            <span class="sector__row-text">Status de pedido automático, recuperação de carrinho personalizada, integração entre canais e ERP rodando sozinha.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="sector reveal reveal--d2">
-        <div class="sector__head">
-          <h3 class="sector__name">Serviços profissionais</h3>
-          <span class="sector__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7h-3V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M9 7V5h6v2"/></svg>
-          </span>
-        </div>
-        <div class="sector__pp">
-          <div class="sector__row">
-            <span class="sector__row-label">Antes</span>
-            <span class="sector__row-text">Demandas chegando por canais soltos, cobrança manual recorrente, cliente sem visibilidade do andamento.</span>
-          </div>
-          <div class="sector__row sector__row--solution">
-            <span class="sector__row-label">Com Auton</span>
-            <span class="sector__row-text">Triagem automática por tipo de demanda, cobrança recorrente automatizada, painel de status compartilhado com o cliente.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="sector reveal reveal--d3">
-        <div class="sector__head">
-          <h3 class="sector__name">Imobiliárias e corretores</h3>
-          <span class="sector__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </span>
-        </div>
-        <div class="sector__pp">
-          <div class="sector__row">
-            <span class="sector__row-label">Antes</span>
-            <span class="sector__row-text">Lead esfriando entre o primeiro contato e a visita, planilha de imóveis manual, follow-up dependendo da memória do corretor.</span>
-          </div>
-          <div class="sector__row sector__row--solution">
-            <span class="sector__row-label">Com Auton</span>
-            <span class="sector__row-text">Qualificação de lead em segundos, agendamento de visita automático, follow-up estruturado e integração com seu CRM.</span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <p class="sectors__note reveal reveal--d3">
-      Não se viu nessa lista? <strong>Não tem problema.</strong> Cada negócio tem um processo único e a Auton trabalha sob medida.
+    <p class="hero-sub">
+      Automatizamos processos de qualquer empresa. Menos trabalho manual, mais tempo para o que realmente importa.
     </p>
+
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://wa.me/5561982365437" target="_blank" rel="noopener" data-magnetic>
+        Falar no WhatsApp <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn-ghost" href="mailto:autoncy@gmail.com" data-magnetic>
+        Agendar conversa
+      </a>
+    </div>
+
+    <span class="scroll-hint"><span class="ln"></span> ROLE PARA EXPLORAR</span>
+  </div>
+
+  <aside class="instrument" aria-label="Painel de instrumentos">
+    <div class="row"><span class="k">Latência</span><span class="v" id="iLat">42ms</span></div>
+    <div class="row"><span class="k">Fluxos ativos</span><span class="v" id="iFlow">1.284</span></div>
+    <div class="row"><span class="k">Uptime</span><span class="v green" id="iUp">99.98%</span></div>
+  </aside>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-row">
+    <span>AUTOMAÇÃO<span class="bullet">•</span></span>
+    <span>IA<span class="bullet">•</span></span>
+    <span>N8N<span class="bullet">•</span></span>
+    <span>WHATSAPP<span class="bullet">•</span></span>
+    <span>CLAUDE<span class="bullet">•</span></span>
+    <span>INTEGRAÇÕES<span class="bullet">•</span></span>
+    <span>PROCESSOS<span class="bullet">•</span></span>
+    <span>EFICIÊNCIA<span class="bullet">•</span></span>
+    <span>ESCALA<span class="bullet">•</span></span>
+    <span>PROCESS &amp; FLOW<span class="bullet">•</span></span>
+    <span>AUTOMAÇÃO<span class="bullet">•</span></span>
+    <span>IA<span class="bullet">•</span></span>
+    <span>N8N<span class="bullet">•</span></span>
+    <span>WHATSAPP<span class="bullet">•</span></span>
+    <span>CLAUDE<span class="bullet">•</span></span>
+    <span>INTEGRAÇÕES<span class="bullet">•</span></span>
+    <span>PROCESSOS<span class="bullet">•</span></span>
+    <span>EFICIÊNCIA<span class="bullet">•</span></span>
+    <span>ESCALA<span class="bullet">•</span></span>
+    <span>PROCESS &amp; FLOW<span class="bullet">•</span></span>
+  </div>
+  <div class="marquee-row r2">
+    <span>FLUXOS SOB MEDIDA<span class="bullet">•</span></span>
+    <span>OPERAÇÃO 24/7<span class="bullet">•</span></span>
+    <span>RESULTADO EM 30 DIAS<span class="bullet">•</span></span>
+    <span>DIAGNÓSTICO GRATUITO<span class="bullet">•</span></span>
+    <span>SEM FIDELIDADE<span class="bullet">•</span></span>
+    <span>FLUXOS SOB MEDIDA<span class="bullet">•</span></span>
+    <span>OPERAÇÃO 24/7<span class="bullet">•</span></span>
+    <span>RESULTADO EM 30 DIAS<span class="bullet">•</span></span>
+    <span>DIAGNÓSTICO GRATUITO<span class="bullet">•</span></span>
+    <span>SEM FIDELIDADE<span class="bullet">•</span></span>
   </div>
 </section>
 
-<!-- ============== STATS ============== -->
-<section class="section" style="padding-top: 80px; padding-bottom: 80px;">
+<!-- ============ SERVIÇOS ============ -->
+<section class="section" id="servicos">
+  <span class="section-label">S.04 / SERVIÇOS</span>
   <div class="container">
-    <div class="stats__wrap reveal">
-      <div class="stats__grid">
-        <div class="stat" data-stat="80">
-          <span class="stat__num"><span class="num">0</span><span class="unit">%</span></span>
-          <span class="stat__label">Tempo médio recuperado em tarefas repetitivas após automação</span>
-        </div>
-        <div class="stat" data-stat="literal">
-          <span class="stat__num"><span class="num">24/7</span></span>
-          <span class="stat__label">Atendimento contínuo, fora do horário comercial</span>
-        </div>
-        <div class="stat" data-stat="literal">
-          <span class="stat__num"><span class="num" style="font-size: 0.7em;">2-3</span></span>
-          <span class="stat__label">Semanas até a primeira automação no ar</span>
-        </div>
-        <div class="stat" data-stat="literal">
-          <span class="stat__num"><span class="num" style="font-size: 0.55em;">Sob medida</span></span>
-          <span class="stat__label">Cada projeto desenhado pra realidade da sua operação</span>
-        </div>
-      </div>
-      <div class="stats__foot">Métricas baseadas em projetos da Auton em produção.</div>
+    <p class="eyebrow reveal">S.04 / Serviços</p>
+    <h2 class="h-section reveal">O que a Auton entrega.</h2>
+    <p class="body-lg reveal" style="margin-top:var(--s-5)">
+      Seis frentes. Um único objetivo: tirar trabalho repetitivo da sua operação.
+    </p>
+
+    <div class="bento reveal-stagger">
+
+      <article class="card c01 tilt">
+        <svg class="c01-pattern" viewBox="0 0 380 260" aria-hidden="true">
+          <defs>
+            <linearGradient id="cg" x1="0" x2="1">
+              <stop offset="0" stop-color="#9B7FE8" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#9B7FE8"/>
+              <stop offset="1" stop-color="#9B7FE8" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,200 C90,80 200,260 380,40" stroke="url(#cg)" stroke-width="1.2" fill="none"/>
+          <path d="M0,140 C100,260 220,40 380,180" stroke="url(#cg)" stroke-width="1.2" fill="none"/>
+          <circle cx="70" cy="170" r="3" fill="#9B7FE8"/>
+          <circle cx="170" cy="120" r="3" fill="#9B7FE8"/>
+          <circle cx="280" cy="160" r="3" fill="#9B7FE8"/>
+          <circle cx="340" cy="90" r="3" fill="#9B7FE8"/>
+        </svg>
+        <span class="card-num">01</span>
+        <svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <h3 class="card-title">Atendimento automatizado</h3>
+        <p class="card-desc">Bots inteligentes via WhatsApp, chat e e-mail que respondem, qualificam e encaminham sem intervenção humana. Triagem 24/7, escalada certa, contexto preservado.</p>
+        <span class="card-link">Saiba mais <span class="ar">→</span></span>
+      </article>
+
+      <article class="card c02 tilt">
+        <span class="card-num">02</span>
+        <svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 2v6M15 2v6M5 8h14v2a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5V8zM12 15v7"/></svg>
+        <h3 class="card-title">Integração de sistemas</h3>
+        <p class="card-desc">CRM, ERP, planilhas, APIs. Tudo conversando entre si.</p>
+      </article>
+
+      <article class="card c03 tilt">
+        <span class="card-num">03</span>
+        <svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+        <h3 class="card-title">Processos internos</h3>
+        <p class="card-desc">Aprovações, notificações, relatórios e cobranças no automático.</p>
+      </article>
+
+      <article class="card c04 tilt">
+        <span class="card-num">04</span>
+        <svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.5.4 1 1.1 1 1.8V18h6v-1.5c0-.7.5-1.4 1-1.8A7 7 0 0 0 12 2z"/></svg>
+        <h3 class="card-title">IA aplicada ao negócio</h3>
+        <p class="card-desc">Respostas inteligentes, triagem de demandas e análise de dados embarcada nos seus fluxos. Claude e modelos de ponta a serviço da operação.</p>
+      </article>
+
+      <article class="card c05 tilt">
+        <span class="card-num">05</span>
+        <svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+        <h3 class="card-title">Dashboards e relatórios</h3>
+        <p class="card-desc">Visualização em tempo real da sua operação. Dados transformados em decisão rápida e embasada. Notificações proativas quando algo sai do padrão.</p>
+        <span class="card-link">Ver exemplos <span class="ar">→</span></span>
+      </article>
+
+      <article class="card c06 tilt">
+        <span class="card-num">06</span>
+        <svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 6h13M4 12h9M4 18h16"/><circle cx="20" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="6" cy="18" r="2"/></svg>
+        <h3 class="card-title">Fluxos sob medida</h3>
+        <p class="card-desc">Cada empresa tem um processo único. Desenvolvemos soluções customizadas.</p>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- ============== FAQ ============== -->
+<!-- ============ PROCESSO ============ -->
+<section class="section" id="processo">
+  <span class="section-label">S.05 / PROCESSO</span>
+  <div class="container">
+    <p class="eyebrow reveal">S.05 / Processo</p>
+    <h2 class="h-section reveal">Da ideia ao fluxo funcionando.</h2>
+    <p class="body-lg reveal" style="margin-top:var(--s-5)">
+      Três etapas. Sem mistério. Sem proposta de 40 páginas.
+    </p>
+
+    <div class="proc-grid reveal-stagger">
+      <svg class="proc-svg" id="procSvg" aria-hidden="true">
+        <line x1="0" y1="1" x2="100%" y2="1"/>
+        <line class="draw" x1="0" y1="1" x2="100%" y2="1" pathLength="1000"/>
+      </svg>
+      <span class="proc-node" style="left:16.66%"></span>
+      <span class="proc-node" style="left:50%"></span>
+      <span class="proc-node" style="left:83.33%"></span>
+
+      <div class="proc-step">
+        <div class="proc-num">01</div>
+        <h3 class="proc-title">Diagnóstico</h3>
+        <p class="proc-desc">Mapeamos sua operação, identificamos gargalos e priorizamos onde a automação gera mais impacto real.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">02</div>
+        <h3 class="proc-title">Desenvolvimento</h3>
+        <p class="proc-desc">Construímos o fluxo sob medida, integrando as ferramentas que você já usa ou que fazem mais sentido para o seu caso.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">03</div>
+        <h3 class="proc-title">Entrega e Suporte</h3>
+        <p class="proc-desc">Implantamos, testamos ao vivo e treinamos sua equipe. Depois da entrega, seguimos com suporte e evolução contínua.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="stats-band" id="numeros">
+  <span class="section-label">S.06 / NÚMEROS</span>
+  <div class="container">
+    <div class="stats-grid reveal-stagger">
+      <div>
+        <div class="stat-num" data-count="80" data-suffix="%">0%</div>
+        <div class="stat-label">Menos tempo em tarefas repetitivas</div>
+      </div>
+      <div>
+        <div class="stat-num" data-count="24" data-suffix="/7">0/7</div>
+        <div class="stat-label">Operação contínua sem interrupção</div>
+      </div>
+      <div>
+        <div class="stat-num" data-count="3" data-suffix="×">0×</div>
+        <div class="stat-label">Mais velocidade no atendimento</div>
+      </div>
+      <div>
+        <div class="stat-num" data-fade>∞</div>
+        <div class="stat-label">Ramos de atuação atendidos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIA ============ -->
+<section class="section garantia" id="garantia">
+  <span class="section-label">S.07 / GARANTIA</span>
+  <div class="container">
+    <p class="eyebrow reveal" style="justify-content:center">S.07 / Garantia</p>
+    <h2 class="h-display reveal" style="font-size:var(--step-5);max-width:20ch;margin:0 auto">
+      Resultado em 30 dias ou seu dinheiro de volta.
+    </h2>
+    <p class="body-lg reveal" style="margin-top:var(--s-5);margin-left:auto;margin-right:auto">
+      Em até 30 dias, entregamos uma automação que economiza no mínimo 20 horas por semana na sua operação. Se não cumprirmos, devolvemos integralmente o investimento de setup. Sem letras miúdas.
+    </p>
+    <p class="sig reveal">_ Carlos &amp; Pedro Henrique, fundadores</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
 <section class="section" id="faq">
+  <span class="section-label">S.08 / FAQ</span>
   <div class="container">
-    <div class="section__head">
-      <span class="eyebrow reveal">Perguntas frequentes</span>
-      <h2 class="section__title reveal reveal--d1">As dúvidas que todo dono de empresa tem antes de começar.</h2>
-    </div>
+    <p class="eyebrow reveal">S.08 / Dúvidas frequentes</p>
+    <h2 class="h-section reveal">O que perguntam antes de fechar.</h2>
 
-    <div class="faq__grid reveal reveal--d1">
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false">
-          <span>Quanto tempo leva para implementar uma automação?</span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Quanto tempo leva para implantar?</span><span class="pm" aria-hidden="true"></span>
         </button>
-        <div class="faq__panel"><div class="faq__panel-inner">
-          Depende do escopo. Automações pontuais entram no ar em 2 a 3 semanas. Projetos mais amplos, que envolvem várias integrações, costumam ficar entre 4 e 8 semanas. No diagnóstico você sai com prazo realista, não com promessa.
+        <div class="faq-panel"><div class="faq-content">
+          Entre 1 e 4 semanas, dependendo da complexidade do fluxo. O cronograma é definido no diagnóstico inicial, antes de qualquer cobrança.
         </div></div>
       </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false">
-          <span>Vocês conseguem integrar com o sistema que eu já uso?</span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Funciona para o meu ramo?</span><span class="pm" aria-hidden="true"></span>
         </button>
-        <div class="faq__panel"><div class="faq__panel-inner">
-          Na maioria dos casos, sim. Trabalhamos com CRMs, ERPs, planilhas, sistemas de gestão e canais de atendimento. Se a ferramenta tiver alguma forma de receber e enviar dados, conseguimos integrar. No diagnóstico avaliamos o seu caso específico antes de prometer.
+        <div class="faq-panel"><div class="faq-content">
+          Sim. Já automatizamos atendimento, vendas, financeiro e operação em ramos diversos. Se sua empresa tem processo repetitivo, tem automação possível.
         </div></div>
       </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false">
-          <span>Quanto custa? Tem mensalidade?</span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Preciso trocar minhas ferramentas atuais?</span><span class="pm" aria-hidden="true"></span>
         </button>
-        <div class="faq__panel"><div class="faq__panel-inner">
-          Cada projeto é orçado de acordo com o escopo. O modelo padrão é uma implantação inicial mais um valor mensal de manutenção e evolução. Você sempre sabe o que está pagando e o que entra em cada parte. Sem letra miúda.
+        <div class="faq-panel"><div class="faq-content">
+          Não. Integramos com o que você já usa: WhatsApp, CRM, ERP, planilhas, e-mail, APIs. A ideia é potencializar, não substituir.
         </div></div>
       </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false">
-          <span>E quando o cliente precisar falar com uma pessoa?</span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Quanto custa?</span><span class="pm" aria-hidden="true"></span>
         </button>
-        <div class="faq__panel"><div class="faq__panel-inner">
-          A automação não substitui sua equipe, ela protege o tempo dela. Casos que precisam de gente são identificados e encaminhados na hora para o atendente certo, com todo o contexto da conversa já coletado. Seu time chega pronto para resolver.
+        <div class="faq-panel"><div class="faq-content">
+          Setup a partir de R$2.500. Mensalidade a partir de R$800. O valor exato depende do escopo, fechado após o diagnóstico inicial gratuito.
         </div></div>
       </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false">
-          <span>Como ficam os dados da minha empresa e dos meus clientes?</span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Como vocês cobram?</span><span class="pm" aria-hidden="true"></span>
         </button>
-        <div class="faq__panel"><div class="faq__panel-inner">
-          Os dados ficam na sua infraestrutura ou em ambientes seguros e auditáveis. Tratamos tudo seguindo as boas práticas de LGPD, com acessos controlados e sem compartilhamento com terceiros. Você é o dono dos seus dados, sempre.
+        <div class="faq-panel"><div class="faq-content">
+          Setup é pagamento único na entrega. A mensalidade cobre operação, suporte e evolução contínua do fluxo. Tudo via contrato simples.
         </div></div>
       </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false">
-          <span>Funciona para empresa pequena ou só para grandes?</span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>E se eu quiser parar?</span><span class="pm" aria-hidden="true"></span>
         </button>
-        <div class="faq__panel"><div class="faq__panel-inner">
-          Atendemos desde pequenas operações que querem profissionalizar o atendimento até empresas com várias áreas integradas. O escopo se adapta ao tamanho do negócio. O importante é existir um processo repetitivo que esteja consumindo tempo do seu time.
+        <div class="faq-panel"><div class="faq-content">
+          Sem fidelidade. Cancela com 30 dias de aviso. Levamos o fluxo embora ou deixamos uma versão estática rodando, sua escolha.
         </div></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="container"><div class="section-divider"></div></div>
-
-<!-- ============== CONTACT ============== -->
-<section class="section" id="contato">
+<!-- ============ CONTATO ============ -->
+<section class="section contato" id="contato">
+  <div class="contato-aurora" aria-hidden="true"></div>
+  <span class="section-label">S.09 / CONTATO</span>
   <div class="container">
-    <div class="contact__wrap">
-      <div class="contact__copy">
-        <span class="eyebrow reveal">Diagnóstico gratuito</span>
-        <h2 class="section__title reveal reveal--d1">Vamos entender seu processo e mostrar onde a automação cabe.</h2>
-        <p class="reveal reveal--d2">Em 30 minutos a gente identifica seus gargalos, prioriza oportunidades e te entrega um caminho realista para automatizar. Sem compromisso.</p>
-
-        <ul class="diag-list reveal reveal--d2">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Conversa de 30 min</strong> com os fundadores, direto ao ponto</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Mapa dos seus processos</strong> com gargalos identificados</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Lista priorizada</strong> de oportunidades de automação</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Escopo, prazo e investimento</strong> realistas, sem letra miúda</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Sem compromisso</strong>, sem upsell, sem proposta enlatada</span>
-          </li>
-        </ul>
-
-        <div class="founders reveal reveal--d3">
-          <div class="founder">
-            <div class="founder__avatar" aria-hidden="true">CM</div>
-            <div class="founder__info">
-              <div class="founder__name">Carlos Mateo · Fundador</div>
-              <p class="founder__quote">"Você fala direto comigo, sem intermediário."</p>
-            </div>
-          </div>
-          <div class="founder">
-            <div class="founder__avatar founder__avatar--alt" aria-hidden="true">PH</div>
-            <div class="founder__info">
-              <div class="founder__name">Pedro Henrique · Fundador</div>
-              <p class="founder__quote">"Cada projeto tratado como se fosse o nosso próprio negócio."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact__meta">
-          <div class="contact__meta-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <a href="https://wa.me/5561982365437" target="_blank" rel="noopener">+55 61 98236-5437 (WhatsApp)</a>
-          </div>
-          <div class="contact__meta-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:Autoncy@gmail.com">Autoncy@gmail.com</a>
-          </div>
-          <div class="contact__meta-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Resposta em até 1 dia útil</span>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact__form reveal reveal--d1" id="contactForm" novalidate>
-        <div class="contact__form-head">
-          <h3>Comece pelo diagnóstico</h3>
-          <p>Conta pra gente em 30 segundos. A gente responde em até 1 dia útil.</p>
-        </div>
-
-        <div class="field">
-          <label for="cf-name">Seu nome</label>
-          <input type="text" id="cf-name" name="name" placeholder="Como podemos te chamar?" required />
-          <span class="field__error">Preenche seu nome.</span>
-        </div>
-        <div class="field">
-          <label for="cf-company">Empresa</label>
-          <input type="text" id="cf-company" name="company" placeholder="Nome da sua empresa" required />
-          <span class="field__error">Preenche o nome da empresa.</span>
-        </div>
-        <div class="field">
-          <label for="cf-process">Que processo você quer automatizar?</label>
-          <textarea id="cf-process" name="process" placeholder="Ex: agendamento de pacientes, atendimento no WhatsApp, integração entre planilha e CRM..." required></textarea>
-          <span class="field__error">Conta pra gente o processo.</span>
-        </div>
-        <div class="field">
-          <label for="cf-phone">WhatsApp para retorno</label>
-          <input type="tel" id="cf-phone" name="phone" placeholder="(DDD) 9 0000-0000" required />
-          <span class="field__error">Preenche um WhatsApp válido.</span>
-        </div>
-        <div class="field">
-          <label for="cf-channel">Como prefere ser contatado primeiro?</label>
-          <select id="cf-channel" name="channel">
-            <option value="WhatsApp">WhatsApp</option>
-            <option value="E-mail">E-mail</option>
-            <option value="Ligação">Ligação</option>
-          </select>
-        </div>
-
-        <button class="btn btn--primary btn--lg contact__submit" type="submit" id="submitBtn">
-          <span class="btn-label">Enviar e abrir WhatsApp</span>
-          <span class="spinner" aria-hidden="true"></span>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-        </button>
-
-        <div class="contact__success" id="formSuccess" role="status" aria-live="polite">
-          Mensagem montada. Abrindo WhatsApp...
-        </div>
-
-        <p class="contact__or">
-          Prefere ir direto? <a href="https://wa.me/5561982365437" target="_blank" rel="noopener">Falar agora no WhatsApp</a>
-        </p>
-      </form>
+    <p class="eyebrow reveal" style="justify-content:center">S.09 / Contato</p>
+    <h2 class="h-display reveal" style="font-size:var(--step-5);max-width:18ch;margin:0 auto var(--s-5)">
+      Pronto para automatizar?
+    </h2>
+    <p class="body-lg reveal" style="margin:0 auto var(--s-7)">
+      Diagnóstico gratuito. Conversamos 30 minutos, mostramos o que dá pra automatizar e quanto isso vale para você.
+    </p>
+    <div class="contato-ctas reveal">
+      <a class="btn btn-primary" href="https://wa.me/5561982365437" target="_blank" rel="noopener" data-magnetic>
+        Falar no WhatsApp <span class="arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="mailto:autoncy@gmail.com" data-magnetic>
+        Enviar e-mail
+      </a>
     </div>
+    <p class="contato-channels reveal">
+      <a href="https://wa.me/5561982365437" target="_blank" rel="noopener">WhatsApp</a>
+      <span style="opacity:.4">·</span>
+      <a href="mailto:autoncy@gmail.com">E-mail</a>
+      <span style="opacity:.4">·</span>
+      <a href="https://autoncy.com">autoncy.com</a>
+    </p>
   </div>
 </section>
 
 </main>
 
-<!-- ============== FINAL CTA ============== -->
-<section class="section-cta">
-  <div class="section-cta__border"></div>
-  <div class="container">
-    <div class="section-cta__inner reveal">
-      <span class="eyebrow">Comece agora</span>
-      <h2>Seu negócio no piloto <span>automático.</span></h2>
-      <p>Diagnóstico gratuito em 30 minutos. Sem compromisso, sem proposta enlatada. Você fala direto com quem constrói.</p>
-      <a class="btn btn--primary btn--lg" href="#contato">Pedir diagnóstico gratuito <span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <p class="cta-note">Sem compromisso · Resultado em semanas · Suporte contínuo</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============== FOOTER ============== -->
+<!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer__grid">
-
-      <!-- Brand -->
-      <div class="footer__brand">
-        <a href="#top" class="logo">
-          <svg aria-hidden="true"><use href="#auton-logo"/></svg>
-          <span class="wordmark">Auton</span>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand" data-magnetic>
+          <svg width="24" height="24" role="img" aria-label="Auton"><use href="#logo"/></svg>
+          <span class="wordmark">AUTON</span>
         </a>
-        <p>Automação de processos com IA para empresas que querem crescer sem contratar mais gente para fazer trabalho repetitivo.</p>
-        <div class="footer__social">
-          <a href="https://wa.me/5561982365437" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
-          </a>
-          <a href="mailto:Autoncy@gmail.com" aria-label="E-mail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-        </div>
+        <p class="tag">Process &amp; Flow</p>
       </div>
-
-      <!-- Navegação -->
-      <div class="footer__col">
-        <p class="footer__col-title">Navegação</p>
-        <div class="footer__col-links">
-          <a href="#dores">Dores</a>
-          <a href="#por-que">Por que Auton</a>
-          <a href="#solucao">Soluções</a>
-          <a href="#processo">Processo</a>
-          <a href="#setores">Setores</a>
-          <a href="#faq">FAQ</a>
-        </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#garantia">Garantia</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
       </div>
-
-      <!-- Soluções -->
-      <div class="footer__col">
-        <p class="footer__col-title">Soluções</p>
-        <div class="footer__col-links">
-          <a href="#solucao">Atendimento automatizado</a>
-          <a href="#solucao">Integração de sistemas</a>
-          <a href="#solucao">Processos internos</a>
-          <a href="#solucao">Inteligência com IA</a>
-          <a href="#solucao">Dashboards</a>
-        </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5561982365437" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:autoncy@gmail.com">E-mail</a></li>
+          <li><a href="https://autoncy.com">autoncy.com</a></li>
+        </ul>
       </div>
-
-      <!-- Contato -->
-      <div class="footer__col">
-        <p class="footer__col-title">Contato</p>
-        <div class="footer__contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="https://wa.me/5561982365437" target="_blank" rel="noopener">+55 61 98236-5437</a>
-        </div>
-        <div class="footer__contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:Autoncy@gmail.com">Autoncy@gmail.com</a>
-        </div>
-        <div class="footer__contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Resposta em até 1 dia útil</span>
-        </div>
+      <div>
+        <h4>Sistema</h4>
+        <ul>
+          <li><span class="sys-pill" style="font-size:10px"><span class="dot"></span>SYS_ONLINE</span></li>
+          <li><span style="opacity:.7;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em">UPTIME 99.98%</span></li>
+          <li><span style="opacity:.7;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em">VERSÃO v1.0</span></li>
+        </ul>
       </div>
-
     </div>
-
-    <div class="footer__bottom">
-      <span class="footer__copy">© 2026 Auton. Todos os direitos reservados.</span>
-      <div class="footer__legal">
-        <a href="#contato">Diagnóstico gratuito</a>
-        <a href="mailto:Autoncy@gmail.com">Contato</a>
-      </div>
+    <div class="footer-bottom">
+      <span>© 2026 AUTON · TODOS OS DIREITOS RESERVADOS.</span>
+      <span class="kbd"><span>CTRL</span><span>+</span><span>K</span> <span style="opacity:.7;margin-left:6px">para conversar</span></span>
+      <span>FEITO EM BRASÍLIA · BR</span>
     </div>
   </div>
 </footer>
 
-<script type="module" src="js/main.js"></script>
+<script>
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  /* NAV scrolled state */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 80);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Mobile menu */
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+    menu.addEventListener('click', e => {
+      if (e.target.tagName === 'A') {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+        menu.setAttribute('aria-hidden','true');
+      }
+    });
+  }
+
+  /* Reveal on scroll */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  /* Process line draw on enter */
+  const procSvg = document.getElementById('procSvg');
+  if (procSvg) {
+    const drawIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { procSvg.classList.add('in'); drawIO.disconnect(); }
+      });
+    }, {threshold: 0.4});
+    drawIO.observe(procSvg);
+  }
+
+  /* Stats counters */
+  const stats = document.querySelectorAll('.stat-num[data-count]');
+  const statIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur = 1600;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 4);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      statIO.unobserve(el);
+    });
+  }, {threshold: 0.5});
+  stats.forEach(s => statIO.observe(s));
+
+  /* Card spotlight + tilt */
+  if (!reduced && !isCoarse) {
+    document.querySelectorAll('.tilt').forEach(card => {
+      let raf = null;
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const px = (x / r.width) * 100;
+        const py = (y / r.height) * 100;
+        const rx = ((y / r.height) - .5) * -4;
+        const ry = ((x / r.width) - .5) * 4;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.setProperty('--mx', px + '%');
+          card.style.setProperty('--my', py + '%');
+          card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* Custom cursor */
+  if (!reduced && !isCoarse) {
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    const loop = () => {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+
+    const onEnter = () => ring.classList.add('active');
+    const onLeave = () => ring.classList.remove('active');
+    document.querySelectorAll('a, button, [data-magnetic], .faq-trigger, .card').forEach(el => {
+      el.addEventListener('mouseenter', onEnter);
+      el.addEventListener('mouseleave', onLeave);
+    });
+
+    /* Magnetic */
+    document.querySelectorAll('[data-magnetic]').forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width/2;
+        const y = e.clientY - r.top - r.height/2;
+        el.style.transform = `translate(${x*0.18}px, ${y*0.18}px)`;
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  /* Instrument panel ticker */
+  const iLat = document.getElementById('iLat');
+  const iFlow = document.getElementById('iFlow');
+  const iUp = document.getElementById('iUp');
+  let flow = 1284;
+  setInterval(() => {
+    if (!iLat) return;
+    const lat = 38 + Math.floor(Math.random() * 8);
+    iLat.textContent = lat + 'ms';
+    if (Math.random() > 0.6) {
+      flow += Math.floor(Math.random() * 3) - 1;
+      iFlow.textContent = flow.toLocaleString('pt-BR');
+    }
+    if (Math.random() > 0.9) {
+      iUp.textContent = (99.92 + Math.random() * 0.07).toFixed(2) + '%';
+    }
+  }, 2200);
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    const panel = item.querySelector('.faq-panel');
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
+        o.querySelector('.faq-panel').style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* Ctrl/Cmd + K shortcut */
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      window.open('https://wa.me/5561982365437', '_blank', 'noopener');
+    }
+  });
+
+  /* Parallax on ghost logo */
+  if (!reduced) {
+    const ghost = document.querySelector('.ghost-logo');
+    if (ghost) {
+      window.addEventListener('scroll', () => {
+        ghost.style.marginTop = (window.scrollY * 0.3) + 'px';
+      }, {passive:true});
+    }
+  }
+})();
+</script>
 </body>
 </html>
