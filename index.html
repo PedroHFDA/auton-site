@@ -97,7 +97,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.04;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;height:72px;z-index:50;backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);background:rgba(14,10,24,.55);border-bottom:1px solid var(--line-soft);transition:background var(--dur-base) var(--ease-out-quart),border-color var(--dur-base)}
+.nav{position:fixed;top:0;left:0;right:0;height:72px;z-index:50;backdrop-filter:blur(8px) saturate(120%);-webkit-backdrop-filter:blur(8px) saturate(120%);background:rgba(14,10,24,.65);border-bottom:1px solid var(--line-soft);transition:background var(--dur-base) var(--ease-out-quart),border-color var(--dur-base)}
 .nav.scrolled{background:rgba(14,10,24,.85);border-bottom-color:var(--line)}
 .nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--s-6)}
 .brand{display:flex;align-items:center;gap:var(--s-3);font-family:var(--font-display);font-weight:500;font-size:var(--step-0);letter-spacing:-.02em;color:var(--white)}
@@ -189,7 +189,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 
 /* TICKER */
 .ticker{padding:var(--s-6) 0;background:var(--noite-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden;position:relative}
-.ticker-track{display:flex;gap:var(--s-8);font-family:var(--font-mono);font-size:var(--step-1);letter-spacing:.1em;color:var(--lilac);opacity:.55;white-space:nowrap;animation:slide 60s linear infinite}
+.ticker-track{display:flex;gap:var(--s-8);font-family:var(--font-mono);font-size:var(--step-1);letter-spacing:.1em;color:var(--lilac);opacity:.55;white-space:nowrap;animation:slide 60s linear infinite;will-change:transform}
 .ticker:hover .ticker-track{animation-play-state:paused}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker-sep{color:var(--purple);margin:0 8px}
@@ -225,7 +225,7 @@ section{position:relative}
 .svc-body{font-size:var(--step-0);color:var(--lilac);opacity:.85;margin-bottom:var(--s-5);max-width:48ch}
 .svc-bullets{list-style:none;display:flex;flex-direction:column;gap:var(--s-2)}
 .svc-bullets li{font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.05em;color:var(--lilac);opacity:.7;text-transform:none}
-.svc-demo{position:relative;background:var(--noite-3);border:1px solid var(--line);border-radius:var(--r-4);padding:var(--s-6);min-height:420px;overflow:hidden}
+.svc-demo{position:relative;background:var(--noite-3);border:1px solid var(--line);border-radius:var(--r-4);padding:var(--s-6);min-height:420px;overflow:hidden;contain:layout style}
 
 /* DEMO 1: Central de atendimento */
 .central{display:flex;flex-direction:column;gap:var(--s-3);height:100%}
@@ -308,7 +308,8 @@ section{position:relative}
 .line-dot{fill:var(--purple);filter:drop-shadow(0 0 6px var(--purple))}
 
 /* DEMO 6: Mesa de fluxos */
-.mesa{display:flex;flex-direction:column;gap:var(--s-4);height:100%;justify-content:center}
+.mesa{display:flex;flex-direction:column;gap:var(--s-4);height:100%;justify-content:flex-start}
+.mesa-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);opacity:.4;margin-bottom:var(--s-1)}
 .mesa-item{background:var(--noite-2);border:1px solid var(--line-soft);border-radius:var(--r-2);padding:var(--s-4);display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);transition:transform var(--dur-base) var(--ease-out-expo),border-color var(--dur-base);min-width:0}
 .mesa-item:hover{transform:scale(1.02);border-color:var(--purple)}
 .mesa-label{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1;overflow:hidden}
@@ -556,8 +557,7 @@ section{position:relative}
 
     <div class="phone-wrap">
       <div class="phone" aria-label="Demonstração de WhatsApp automatizado">
-        <div class="demo-label">Demo · Exemplo ilustrativo</div>
-        <div class="phone-screen">
+<div class="phone-screen">
           <div class="wa-header">
             <div class="wa-avatar">
               <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -866,8 +866,8 @@ section{position:relative}
         </ul>
       </div>
       <div class="svc-demo">
-        <div class="demo-label">Demo · 3 clientes, 3 fluxos</div>
         <div class="mesa">
+          <div class="mesa-eyebrow">Demo · 3 clientes, 3 fluxos</div>
           <div class="mesa-item">
             <div class="mesa-label">
               <div class="mesa-name">Distribuidora</div>
@@ -940,7 +940,7 @@ section{position:relative}
             <span class="num tabnum">R$ <span id="oCost">8.400</span></span>
           </div>
           <div class="roi-line">
-            <span class="label">Leads perdidos por demora (est. 27%)</span>
+            <span class="label">Leads perdidos por demora (15–40% conforme tempo)</span>
             <span class="num tabnum"><span id="oLeads">648</span>/mês</span>
           </div>
           <div class="roi-line big">
@@ -1129,6 +1129,13 @@ section{position:relative}
   'use strict';
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Visibility-aware demo pausing
+  const visDemos={wa:true,conv:false,flow:false,tl:false,ia:false,dash:false};
+  const demoObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{const k=e.target.dataset.vis;if(k)visDemos[k]=e.isIntersecting;});
+  },{threshold:0.01,rootMargin:'200px'});
+  function watchDemo(el,key){if(!el)return;el.dataset.vis=key;demoObs.observe(el);}
+
   // Nav scroll state
   const nav=document.getElementById('nav');
   let lastY=0;
@@ -1207,6 +1214,7 @@ section{position:relative}
 
   async function runWhatsapp(){
     while(true){
+      while(!visDemos.wa)await wait(300);
       clearChat();
       for(let i=0;i<conversation.length;i++){
         while(waPaused) await wait(200);
@@ -1258,6 +1266,7 @@ section{position:relative}
   const convAuto=document.getElementById('convAuto');
   if(!reduce){
     setInterval(()=>{
+      if(!visDemos.conv)return;
       convDeck.unshift(convDeck.pop());
       renderConv();
       const t=parseInt(convToday.textContent,10);
@@ -1280,6 +1289,7 @@ section{position:relative}
   ];
   async function runFlow(){
     while(true){
+      while(!visDemos.flow)await wait(300);
       const use=Math.random()>.5?paths:pathsAlt;
       pkg.setAttribute('cx',18);
       pkg.setAttribute('cy',22);
@@ -1345,6 +1355,7 @@ section{position:relative}
   renderTl();
   if(!reduce){
     setInterval(()=>{
+      if(!visDemos.tl)return;
       tlDeck.unshift(tlDeck.pop());
       renderTl();
       const c=document.getElementById('tlCount');
@@ -1383,6 +1394,7 @@ section{position:relative}
   let iaIdx=0;
   async function runIA(){
     while(true){
+      while(!visDemos.ia)await wait(300);
       iaLines.innerHTML='';
       const scenario=iaScenarios[iaIdx];
       const elements=scenario.map(line=>{
@@ -1442,7 +1454,7 @@ section{position:relative}
     lineChart.setAttribute('points',l.trim());
     lineDot.setAttribute('cy',linePts[linePts.length-1]);
   }
-  if(!reduce){setInterval(rerollDash,3500)}
+  if(!reduce){setInterval(()=>{if(visDemos.dash)rerollDash();},3500)}
 
   // ============ ROI CALCULATOR ============
   const rMsgs=document.getElementById('rMsgs');
@@ -1464,8 +1476,12 @@ section{position:relative}
     rCostVal.textContent=c;
     const hoursMonth=Math.round(m*t/60*30);
     const costMonth=Math.round(hoursMonth*c);
-    const leadsLost=Math.round(m*0.27*30);
-    const revLost=leadsLost*120;
+    // taxa de perda cresce com tempo de resposta: 15% (1min) até 40% (30min)
+    const lossRate=0.15+(t/30)*0.25;
+    const leadsLost=Math.round(m*lossRate*30);
+    // ticket médio escala com custo/hora da equipe (proxy do porte da empresa)
+    const ticket=Math.round(c*3.5);
+    const revLost=leadsLost*ticket;
     oHours.textContent=hoursMonth.toLocaleString('pt-BR');
     oCost.textContent=costMonth.toLocaleString('pt-BR');
     oLeads.textContent=leadsLost.toLocaleString('pt-BR');
@@ -1473,6 +1489,14 @@ section{position:relative}
   }
   [rMsgs,rTime,rCost].forEach(el=>el.addEventListener('input',calcROI));
   calcROI();
+
+  // Register demo visibility observers
+  watchDemo(document.querySelector('.phone-wrap'),'wa');
+  watchDemo(convList&&convList.closest('.svc-demo'),'conv');
+  watchDemo(document.getElementById('pkg')&&document.getElementById('pkg').closest('.svc-demo'),'flow');
+  watchDemo(tlEvents&&tlEvents.closest('.svc-demo'),'tl');
+  watchDemo(iaLines&&iaLines.closest('.svc-demo'),'ia');
+  watchDemo(dashRev&&dashRev.closest('.svc-demo'),'dash');
 
   // ============ STATS COUNTER ============
   const statsSection=document.querySelector('.stats');
